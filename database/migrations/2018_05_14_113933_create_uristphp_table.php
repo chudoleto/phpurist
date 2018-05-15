@@ -24,6 +24,7 @@ class CreateUristphpTable extends Migration
                 Schema::create('Subdvision', function (Blueprint $table) {
                     $table->increments('id');
                     $table->string('Name')->nullable();
+                    $table->string('Description');
                     $table->timestamps();
                     
                 });
@@ -43,9 +44,19 @@ class CreateUristphpTable extends Migration
                         
                             Schema::create('Status_task', function (Blueprint $table) {
                                 $table->increments('id');
-                                $table->text('Description');
+                                $table->text('name');
                                 $table->timestamps();
                             });
+                            
+                                Schema::create('Servise', function (Blueprint $table) {
+                                    $table->increments('id');
+                                    $table->string('Kod');
+                                    $table->string('Name');
+                                    $table->string('Version');
+                                    $table->string('Address');
+                                    $table->timestamps();
+                                });
+                                    
                 
                     Schema::create('User', function (Blueprint $table) {
                         $table->increments('id');
@@ -71,14 +82,7 @@ class CreateUristphpTable extends Migration
                         $table->datetime('Deadline');
                         $table->text('Comment');
                         $table->timestamps();
-                        
-                        $table->integer('User_id')->unsigned()->nullable();
-                        $table->foreign('User_id')->references('id')->on('User');
-                        
-                        $table->integer('Subdvision_id')->unsigned()->nullable();
-                        $table->foreign('Subdvision_id')->references('id')->on('Subdvision');
-                        
-                        
+                     
                         $table->integer('Status_project_id')->unsigned()->nullable();
                         $table->foreign('Status_project_id')->references('id')->on('Status_project');
                     });
@@ -96,9 +100,6 @@ class CreateUristphpTable extends Migration
                             $table->integer('Project_id')->unsigned()->nullable();
                             $table->foreign('Project_id')->references('id')->on('Project');
                             
-                            $table->integer('User_id')->unsigned()->nullable();
-                            $table->foreign('User_id')->references('id')->on('User');
-                            
                             $table->integer('Priority_task_id')->unsigned()->nullable();
                             $table->foreign('Priority_task_id')->references('id')->on('Priority_task');
                             
@@ -115,15 +116,6 @@ class CreateUristphpTable extends Migration
                                 $table->foreign('Task_id')->references('id')->on('Task');
                             });
                            
-                                    Schema::create('Servise', function (Blueprint $table) {
-                                        $table->increments('id');
-                                        $table->string('Kod');
-                                        $table->string('Name');
-                                        $table->string('Version');
-                                        $table->string('Address');
-                                        $table->timestamps();
-                                    });
-                                    
                                         Schema::create('Card', function (Blueprint $table) {
                                             $table->increments('id');
                                             $table->string('Otvetchik')->nullable();
@@ -140,6 +132,19 @@ class CreateUristphpTable extends Migration
                                             $table->integer('Task_id')->unsigned()->nullable();
                                             $table->foreign('Task_id')->references('id')->on('Task');
                                         });
+                                        
+                                            Schema::create('Connected_Servise', function (Blueprint $table) {
+                                                $table->increments('id');
+                                           
+                                                $table->integer('Subdvision_id')->unsigned()->nullable();
+                                                $table->foreign('Subdvision_id')->references('id')->on('Subdvision');
+                                                
+                                                $table->integer('Servise_id')->unsigned()->nullable();
+                                                $table->foreign('Servise_id')->references('id')->on('Servise');
+                                                
+                                                $table->timestamps();
+                                            });
+                                                
     }
 
     /**
