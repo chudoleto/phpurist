@@ -28,6 +28,25 @@ class CreateUristphpTable extends Migration
                     
                 });
                 
+                    Schema::create('Status_project', function (Blueprint $table) {
+                        $table->increments('id');
+                        $table->text('Description');
+                        $table->timestamps();
+                    });
+                    
+                        Schema::create('Priority_task', function (Blueprint $table) {
+                            $table->increments('id');
+                            $table->text('Description');
+                            $table->text('Private');
+                            $table->timestamps();
+                        });
+                        
+                            Schema::create('Status_task', function (Blueprint $table) {
+                                $table->increments('id');
+                                $table->text('Description');
+                                $table->timestamps();
+                            });
+                
                     Schema::create('User', function (Blueprint $table) {
                         $table->increments('id');
                         $table->string('Login', 100)->unique();
@@ -58,6 +77,10 @@ class CreateUristphpTable extends Migration
                         
                         $table->integer('Subdvision_id')->unsigned()->nullable();
                         $table->foreign('Subdvision_id')->references('id')->on('Subdvision');
+                        
+                        
+                        $table->integer('Status_project_id')->unsigned()->nullable();
+                        $table->foreign('Status_project_id')->references('id')->on('Status_project');
                     });
                     
                         Schema::create('Task', function (Blueprint $table) {
@@ -75,6 +98,12 @@ class CreateUristphpTable extends Migration
                             
                             $table->integer('User_id')->unsigned()->nullable();
                             $table->foreign('User_id')->references('id')->on('User');
+                            
+                            $table->integer('Priority_task_id')->unsigned()->nullable();
+                            $table->foreign('Priority_task_id')->references('id')->on('Priority_task');
+                            
+                            $table->integer('Status_task_id')->unsigned()->nullable();
+                            $table->foreign('Status_task_id')->references('id')->on('Status_task');
                         });
   
                             Schema::create('Files', function (Blueprint $table) {
@@ -85,26 +114,7 @@ class CreateUristphpTable extends Migration
                                 $table->integer('Task_id')->unsigned()->nullable();
                                 $table->foreign('Task_id')->references('id')->on('Task');
                             });
-                            
-                                Schema::create('Status_project', function (Blueprint $table) {
-                                    $table->increments('id');
-                                    $table->text('Description');
-                                    $table->timestamps();
-                                    
-                                    $table->integer('Project_id')->unsigned()->nullable();
-                                    $table->foreign('Project_id')->references('id')->on('Project');
-                                });
-                                
-                                    Schema::create('Priority_task', function (Blueprint $table) {
-                                        $table->increments('id');
-                                        $table->text('Description');
-                                        $table->text('Private');
-                                        $table->timestamps();
-                                        
-                                        $table->integer('Task_id')->unsigned()->nullable();
-                                        $table->foreign('Task_id')->references('id')->on('Task');
-                                    });
-                                
+                           
                                     Schema::create('Servise', function (Blueprint $table) {
                                         $table->increments('id');
                                         $table->string('Kod');
