@@ -17,7 +17,7 @@ class CreateUristphpTable extends Migration
             $table->increments('id');
             $table->string('Login', 100)->unique();
             $table->string('Password');
-            $table->string('Emai', 100)->unique();
+            $table->string('Email', 100)->unique();
             $table->string('Name')->nullable();
             $table->string('Sename')->nullable();
             $table->string('Otchestvo')->nullable();
