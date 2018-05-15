@@ -13,24 +13,7 @@ class CreateUristphpTable extends Migration
      */
     public function up()
     {
-        Schema::create('User', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Login', 100)->unique();
-            $table->string('Password');
-            $table->string('Email', 100)->unique();
-            $table->string('Name')->nullable();
-            $table->string('Sename')->nullable();
-            $table->string('Otchestvo')->nullable();
-            $table->string('Pol')->nullable();
-            $table->string('Leader')->nullable();
-            $table->timestamps();
-            
-            $table->integer('Role_id')->unsigned()->nullable();
-            $table->foreign('Role_id')->references('id')->on('Role');
-            
-            $table->integer('Subdvision_id')->unsigned()->nullable();
-            $table->foreign('Subdvision_id')->references('id')->on('Subdvision');
-        });
+       
         
             Schema::create('Role', function (Blueprint $table) {
                 $table->increments('id');
@@ -43,9 +26,26 @@ class CreateUristphpTable extends Migration
                     $table->string('Name')->nullable();
                     $table->timestamps();
                     
-                    $table->integer('User_id')->unsigned()->nullable();
-                    $table->foreign('User_id')->references('id')->on('User');
                 });
+                
+                    Schema::create('User', function (Blueprint $table) {
+                        $table->increments('id');
+                        $table->string('Login', 100)->unique();
+                        $table->string('Password');
+                        $table->string('Email', 100)->unique();
+                        $table->string('Name')->nullable();
+                        $table->string('Sename')->nullable();
+                        $table->string('Otchestvo')->nullable();
+                        $table->string('Pol')->nullable();
+                        $table->string('Leader')->nullable();
+                        $table->timestamps();
+                        
+                        $table->integer('Role_id')->unsigned()->nullable();
+                        $table->foreign('Role_id')->references('id')->on('Role');
+                        
+                        $table->integer('Subdvision_id')->unsigned()->nullable();
+                        $table->foreign('Subdvision_id')->references('id')->on('Subdvision');
+                    });
                 
                     Schema::create('Project', function (Blueprint $table) {
                         $table->increments('id');
