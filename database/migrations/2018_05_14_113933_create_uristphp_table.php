@@ -37,7 +37,6 @@ class CreateUristphpTable extends Migration
                         $table->string('Sename')->nullable();
                         $table->string('Otchestvo')->nullable();
                         $table->string('Pol')->nullable();
-                        $table->string('Leader')->nullable();
                         $table->timestamps();
                         
                         $table->integer('Role_id')->unsigned()->nullable();
@@ -52,7 +51,6 @@ class CreateUristphpTable extends Migration
                         $table->string('Name')->nullable();
                         $table->datetime('Deadline');
                         $table->text('Comment');
-                        $table->string('Responsible')->nullable();
                         $table->timestamps();
                         
                         $table->integer('User_id')->unsigned()->nullable();
@@ -66,9 +64,9 @@ class CreateUristphpTable extends Migration
                             $table->increments('id');
                             $table->string('Header')->nullable();
                             $table->string('Description');
-                            $table->string('Short_deadline');
-                            $table->string('Start')->nullable();
-                            $table->string('End')->nullable();
+                            $table->datetime('Short_deadline');
+                            $table->datetime('Start')->nullable();
+                            $table->datetime('End')->nullable();
                             $table->string('Status');
                             $table->timestamps();
                             
