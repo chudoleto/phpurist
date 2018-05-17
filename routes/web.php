@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@home');
+Route::get('/app', 'App\AppHomeController@get');
 
-Route::get('/more', function () {
-    return view('more');
-    });
+Route::get('/more2', function() {
+	return view('more2');
+});
