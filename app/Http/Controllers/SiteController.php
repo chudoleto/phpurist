@@ -10,4 +10,14 @@ class SiteController extends Controller
 	{
 		return view('site.home');
 	}
+	
+	public function contact(Request $request)
+	{
+	    return view('site.contact');
+	}
+	
+	public function news(Request $request)
+	{
+	    return view('site.news');
+	}
 }

@@ -7,7 +7,7 @@
 		<base href="{{ env('APP_URL') }}" />
 		<title>{{ config('app.name', 'Laravel') }}</title>
 		<link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" type="text/css">
+		<link rel="stylesheet" href="https:fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" type="text/css">
 		<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}" type="text/css" />
 		<link rel="stylesheet" href="{{ asset('/css/fontawesome-all.min.css') }}" type="text/css" />
 		
@@ -16,10 +16,13 @@
 		
 	</head>
 	<body>
+	
+	
 		
 		<div class="page-wrap">
 			<div class="content-wrap">
 				@yield('menu')
+				
 				@yield('page-content')
 			</div>
 			<footer>

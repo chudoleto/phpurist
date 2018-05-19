@@ -12,6 +12,12 @@
 */
 
 Route::get('/', 'SiteController@home');
+Route::get('/contact', 'SiteController@contact');
+Route::get('/news', 'SiteController@news');
+
+
+
+
 Route::get('/app', 'App\AppHomeController@get');
 
 Route::get('/more2', function() {
