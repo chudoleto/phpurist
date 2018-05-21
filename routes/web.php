@@ -16,6 +16,12 @@ Route::get('/contact', 'SiteController@contact');
 Route::get('/news', 'SiteController@news');
 
 
+// Role
+
+Route::get('/role', 'App\RoleController@listGet');
+Route::post('/role', 'App\RoleController@listPost');
+Route::get('/role/item/{id?}', 'App\RoleController@itemGet');
+Route::post('/role/item/{id?}', 'App\RoleController@itemPost');
 
 
 Route::get('/app', 'App\AppHomeController@get');
