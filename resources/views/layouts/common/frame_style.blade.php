@@ -1,25 +1,36 @@
 <style>
 
-	html, body, .page-wrap {
+	html, body {
 		height: 100%;
 		margin: 0;
 		padding: 0;
 		font-family: 'Raleway', sans-serif;
 	}
-	.content-wrap {
-		box-sizing: border-box;
-		min-height: 100%;
+	
+	.page-wrap {
+		display: table;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 	}
 	
 	.content-wrap {
-		padding-bottom: 100px;
+		box-sizing: border-box;
+		height: 100%;
+		display: table-row;
 	}
+	.footer-row {
+		display: table-row;
+	}
+	.footer-cell {
+		display: table-cell;
+	}
+	
 	footer {
-		padding: 20px 0;
 		background-color: #666;
 		color: #fff;
-		height: 70px;
-		margin-top: -70px;
+		padding: 20px 0;
 	}
 	
 </style>

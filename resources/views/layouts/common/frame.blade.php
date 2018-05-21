@@ -25,9 +25,13 @@
 				
 				@yield('page-content')
 			</div>
-			<footer>
-				@yield('footer')
-			</footer>
+			<div class="footer-row">
+				<div class="footer-cell">
+					<footer>
+						@yield('footer')
+					</footer>
+				</div>
+			</div>
 		</div>
 
 		
