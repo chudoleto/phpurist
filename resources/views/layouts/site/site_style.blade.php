@@ -151,13 +151,13 @@ button{
 .img-block{
     width: 800px;
     height: 256px;
-    background: url("{{ asset('/images/imgblock.png') }}") center no-repeat;
+    background: url("{{ asset('/images/infoblock14.png') }}") center no-repeat;
     background-size: cover;
 }
 .img-block2{
     width: 800px;
     height: 256px;
-    background: url("{{ asset('/images/imgblock.png') }}") center no-repeat;
+    background: url("{{ asset('/images/infoblock24.png') }}") center no-repeat;
     background-size: cover;
 }
 .item-content2{
@@ -232,7 +232,7 @@ button{
 button.button-search{
     width: 575px;
     height: 90px;
-    background: #766357;
+    background: #81b3d2;
     color: #ffffff;
     font-size: 21px;
     text-transform: uppercase;
