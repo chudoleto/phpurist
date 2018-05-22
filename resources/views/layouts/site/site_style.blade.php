@@ -123,6 +123,7 @@ button{
 
 .info-block h3{
     margin: 48px 0 30px 0;
+     font-weight: bold;
 }
 
 .info-block p{
@@ -141,6 +142,7 @@ button{
 
 .info-block2 h3{
     margin: 48px 0 30px 0;
+     font-weight: bold;
 }
 
 .info-block2 p{
@@ -169,6 +171,11 @@ button{
 .item-content2 p{
     margin: 30px 0 0 0;
 }
+
+}
+.item-content2 h2{
+    font-weight: bold;
+}
 .icon-1{
     width: 76px;
     height: 76px;
@@ -196,6 +203,7 @@ button{
 }
 .item-content4 h3{
     margin: 48px 0 30px 0;
+    font-weight: bold;
     
 }
 .item-content4 p{
@@ -209,6 +217,7 @@ button{
 
 .item-content2 h3{
     margin: 48px 0 30px 0;
+    
 }
 .item-content2 p{
     margin: 30px 0 0 0;
@@ -225,6 +234,7 @@ button{
 }
 .hotels-search h2{
     margin: 0 0 38px 0;
+    font-weight: bold;
 }
 .hotels-search p{
     margin: 0 0 40px 0;
