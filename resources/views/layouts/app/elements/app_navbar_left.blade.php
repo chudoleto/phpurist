@@ -1,4 +1,6 @@
 
 @if (!Auth::guest())
-	<li class="nav-item"><a href="{{ url('/') }}">Главная</a></li>
+
 @endif
+
+<li class="nav-item"><a class="nav-link" href="{{ url('/role') }}">Роли</a></li>

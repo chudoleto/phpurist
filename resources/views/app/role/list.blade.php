@@ -19,17 +19,20 @@
 		
 		<div class="row py-2">
 			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="btn_create" value="1">Создать</button>
+				<button type="submit" class="btn btn-default" name="btn_create" value="1"><i class="fas fa-plus-circle"></i> Создать</button>
 			</div>
 		</div>
+		
+		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Наименование</div></div>
+		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">
 			<div class="col-sm-6">
 				{{ $item->name }}
 			</div>
 			<div class="col-sm-6 text-right">
-				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}">Редактировать</button>
-				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}">Удалить</button>
+				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}"><i class="fas fa-edit"></i> Редактировать</button>
+				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}"><i class="fas fa-trash-alt"></i> Удалить</button>
 			</div>
 		</div>
 		@endforeach
