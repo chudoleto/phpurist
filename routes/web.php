@@ -23,6 +23,11 @@ Route::post('/role', 'App\RoleController@listPost');
 Route::get('/role/item/{id?}', 'App\RoleController@itemGet');
 Route::post('/role/item/{id?}', 'App\RoleController@itemPost');
 
+Route::get('/status_project', 'App\Status_projectController@listGet');
+Route::post('/status_project', 'App\Status_projectController@listPost');
+Route::get('/status_project/item/{id?}', 'App\Status_projectController@itemGet');
+Route::post('/status_project/item/{id?}', 'App\Status_projectController@itemPost');
+
 
 Route::get('/app', 'App\AppHomeController@get');
 
