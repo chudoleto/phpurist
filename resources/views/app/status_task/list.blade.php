@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Роли</h1>
+	<h1>Статус Задачи</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}

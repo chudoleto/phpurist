@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Роли</h1>
+	<h1>Приоритет задачи</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}
@@ -23,13 +23,17 @@
 			</div>
 		</div>
 		
-		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Наименование</div></div>
+	
+		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Описание и приватность задачи</div></div>
 		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">
 		
-			<div class="col-sm-6">
-				{{ $item->name }}
+			<div class="col-sm-3">
+				{{ $item->Description }}
+			</div>
+				<div class="col-sm-3">
+				{{ $item->Private }}
 			</div>
 			<div class="col-sm-6 text-right">
 				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
@@ -38,6 +42,7 @@
 			
 		</div>
 		@endforeach
+		
 	</form>
 	
 @endsection

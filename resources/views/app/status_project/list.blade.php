@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-sm-6 text-right">
 				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
-				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}"><i class="fas fa-trash-alt"></i> Удалить</button>
+				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}" title="Удалить"><i class="fas fa-trash-alt"></i></button>
 			</div>
 			
 		</div>
