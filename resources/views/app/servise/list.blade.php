@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Приоритет задачи</h1>
+	<h1>Сервис</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}
@@ -24,7 +24,7 @@
 		</div>
 		
 	
-		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Описание и приватность задачи</div></div>
+		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Код, Имя, Версия, Адресс</div></div>
 		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">
