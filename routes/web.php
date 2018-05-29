@@ -49,6 +49,11 @@ Route::post('/servise', 'App\ServiseController@listPost');
 Route::get('/servise/item/{id?}', 'App\ServiseController@itemGet');
 Route::post('/servise/item/{id?}', 'App\ServiseController@itemPost');
 
+Route::get('/project', 'App\ProjectController@listGet');
+Route::post('/project', 'App\ProjectController@listPost');
+Route::get('/project/item/{id?}', 'App\ProjectController@itemGet');
+Route::post('/project/item/{id?}', 'App\ProjectController@itemPost');
+
 Route::get('/app', 'App\AppHomeController@get');
 
 Route::get('/more2', function() {

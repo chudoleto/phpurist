@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Subdvision extends Model
+class Project extends Model
 {
-	protected $table = 'Subdvision';
+	protected $table = 'Project';
 	
 	protected $fillable = [
-	    'Name','Description',
+		'Name','Deadline','Deadline','Comment','Status_project_id',
 	];
 	
 	// Put this in any model and use
@@ -18,5 +18,10 @@ class Subdvision extends Model
 	{
 		$obj = static::find($id);
 		return $obj ?: new static;
+	}
+	
+	public function Status_project()
+	{
+		return $this->belongsTo('App\Status_project', 'Status_project_id');
 	}
 }

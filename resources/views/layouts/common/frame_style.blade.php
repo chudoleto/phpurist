@@ -25,6 +25,7 @@
 	}
 	.footer-cell {
 		display: table-cell;
+		padding-top: 30px;
 	}
 	
 	footer {

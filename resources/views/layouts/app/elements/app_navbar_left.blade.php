@@ -3,9 +3,26 @@
 
 @endif
 
-<li class="nav-item"><a class="nav-link" href="{{ url('/role') }}">Роли</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('/subdvision') }}">Подразделение</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('servise') }}">Сервис</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('/priority_task') }}">Приоритет задачи</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('/status_project') }}">Статус проекта</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('/status_task') }}">Статус Задачи</a></li>
+<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Настройки
+	</a>
+	<div class="dropdown-menu">
+		<a class="dropdown-item" href="{{ url('/priority_task') }}">Приоритеты задач</a>
+		<a class="dropdown-item" href="{{ url('/status_project') }}">Статусы проектов</a>
+		<a class="dropdown-item" href="{{ url('/status_task') }}">Статусы задач</a>
+		<a class="dropdown-item" href="{{ url('/role') }}">Роли</a>
+	</div>
+</li>
+
+<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Администрирование
+	</a>
+	<div class="dropdown-menu">
+		<a class="dropdown-item" href="{{ url('/servise') }}">Сервисы</a>
+		<a class="dropdown-item" href="{{ url('/subdvision') }}">Подразделения</a>
+	</div>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ url('/project') }}">Проекты</a></li>

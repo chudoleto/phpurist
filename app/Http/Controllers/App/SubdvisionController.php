@@ -53,7 +53,7 @@ class SubdvisionController extends Controller
 		}
 		
 		$this->validate($request, [
-			'name' => 'required|unique:Subdvision,name,'.$item_id.'|max:255',
+			'Name' => 'required|unique:Subdvision,Name,'.$item_id.'|max:255',
 		    'Description' => 'required|unique:Subdvision,Description,'.$item_id.'|max:255',
 		]);
 		

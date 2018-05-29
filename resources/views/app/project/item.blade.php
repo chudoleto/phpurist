@@ -12,23 +12,37 @@
 		</div>
 	@endif
 	
-	<h1>Подразделение</h1>
+	<h1>Проект</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}
 		<input type="hidden" id="id" value="{{ ($item) ? $item->id : '' }}">
 		
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="name">Название подразделения</label>
+					<label for="name">Наименование</label>
 					<input name="Name" id="Name" value="{{ old('Name', null) ? old('Name') : $item->Name }}" type="text" class="form-control">
 				</div>
 			</div>
-				<div class="col-sm-12">
+			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="name">Описание</label>
-					<input name="Description" id="Description" value="{{ old('Description', null) ? old('Description') : $item->Description }}" type="text" class="form-control">
+					<label for="name">Крайний срок</label>
+					<input name="Deadline" id="Deadline" value="{{ old('Deadline', null) ? old('Deadline') : $item->Deadline }}" type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="name">Комментарий</label>
+					<textarea name="Comment" id="Comment" class="form-control">{{ old('Comment', null) ? old('Comment') : $item->Comment }}</textarea>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="name">Статус</label>
+					<select name="Status_project_id" id="Status_project_id" class="custom-select">
+						{!! App\Status_project::getSelectFieldOptions($item->Status_project, old('Status_project_id', null)) !!}
+					</select>
 				</div>
 			</div>
 		</div>
