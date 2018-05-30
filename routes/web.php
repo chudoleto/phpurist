@@ -54,6 +54,21 @@ Route::post('/project', 'App\ProjectController@listPost');
 Route::get('/project/item/{id?}', 'App\ProjectController@itemGet');
 Route::post('/project/item/{id?}', 'App\ProjectController@itemPost');
 
+Route::get('/users_', 'App\UsersController@listGet');
+Route::post('/users_', 'App\UsersController@listPost');
+Route::get('/users_/item/{id?}', 'App\UsersController@itemGet');
+Route::post('/users_/item/{id?}', 'App\UsersController@itemPost');
+
+Route::get('/task', 'App\TaskController@listGet');
+Route::post('/task', 'App\TaskController@listPost');
+Route::get('/task/item/{id?}', 'App\TaskController@itemGet');
+Route::post('/task/item/{id?}', 'App\TaskController@itemPost');
+
+Route::get('/files', 'App\FilesController@listGet');
+Route::post('/files', 'App\FilesController@listPost');
+Route::get('/files/item/{id?}', 'App\FilesController@itemGet');
+Route::post('/files/item/{id?}', 'App\FilesController@itemPost');
+
 Route::get('/app', 'App\AppHomeController@get');
 
 Route::get('/more2', function() {

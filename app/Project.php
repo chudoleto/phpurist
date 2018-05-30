@@ -24,4 +24,29 @@ class Project extends Model
 	{
 		return $this->belongsTo('App\Status_project', 'Status_project_id');
 	}
+	
+	public static function getSelectFieldOptions($value = '', $old_id = '')
+	{
+	    $ret = '';
+	    
+	    $propper_id = '';
+	    if ($value) {
+	        $propper_id = $value->id;
+	    } elseif ($old_id) {
+	        $propper_id = $old_id;
+	    }
+	    $items = self::orderBy('id')->get();
+	    
+	    $ret = '<option disabled selected> -- Не выбрано -- </option>';
+	    foreach($items as $item) {
+	        $ret .= '<option';
+	        $ret .= ' value="'.$item->id.'"';
+	        $ret .= ($item->id == $propper_id) ? ' selected' : '';
+	        $ret .= '>';
+	        $ret .= $item->Name;
+	        $ret .= '</option>';
+	    }
+	    
+	    return $ret;
+	}
 }

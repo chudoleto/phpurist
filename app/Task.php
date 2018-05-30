@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Task extends Model
 {
-	protected $table = 'Role';
+	protected $table = 'Task';
 	
 	protected $fillable = [
-		'name',
+	    'Header','Description','Short_deadline','Start','End','Status',
 	];
 	
 	// Put this in any model and use
@@ -18,6 +18,21 @@ class Role extends Model
 	{
 		$obj = static::find($id);
 		return $obj ?: new static;
+	}
+	
+	public function Project()
+	{
+		return $this->belongsTo('App\Project', 'Project_id');
+	}
+	
+	public function Priority_task()
+	{
+	    return $this->belongsTo('App\Priority_task', 'Priority_task_id');
+	}
+	
+	public function Status_task()
+	{
+	    return $this->belongsTo('App\Status_task', 'Status_task_id');
 	}
 	
 	public static function getSelectFieldOptions($value = '', $old_id = '')
@@ -38,7 +53,7 @@ class Role extends Model
 	        $ret .= ' value="'.$item->id.'"';
 	        $ret .= ($item->id == $propper_id) ? ' selected' : '';
 	        $ret .= '>';
-	        $ret .= $item->name;
+	        $ret .= $item->Header;
 	        $ret .= '</option>';
 	    }
 	    
