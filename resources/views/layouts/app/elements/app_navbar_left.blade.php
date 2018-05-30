@@ -28,4 +28,5 @@
 </li>
 
 <li class="nav-item"><a class="nav-link" href="{{ url('/project') }}">Проекты</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ url('task') }}">Задачи</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ url('/task') }}">Задачи</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ url('/card') }}">карточка</a></li>

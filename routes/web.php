@@ -69,6 +69,11 @@ Route::post('/files', 'App\FilesController@listPost');
 Route::get('/files/item/{id?}', 'App\FilesController@itemGet');
 Route::post('/files/item/{id?}', 'App\FilesController@itemPost');
 
+Route::get('/card', 'App\CardController@listGet');
+Route::post('/card', 'App\CardController@listPost');
+Route::get('/card/item/{id?}', 'App\CardController@itemGet');
+Route::post('/card/item/{id?}', 'App\CardController@itemPost');
+
 Route::get('/app', 'App\AppHomeController@get');
 
 Route::get('/more2', function() {
