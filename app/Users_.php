@@ -9,7 +9,7 @@ class Users_ extends Model
 	protected $table = 'User';
 	
 	protected $fillable = [
-	    'Login','Password','Email','Name','Sename','Otchestvo','Pol',
+		'Login','Password','Email','Name','Sename','Otchestvo','Pol','Role_id','Subdvision_id'
 	];
 	
 	// Put this in any model and use
