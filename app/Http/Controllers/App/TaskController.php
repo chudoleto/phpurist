@@ -54,7 +54,7 @@ class TaskController extends Controller
 		
 		$this->validate($request, [
 			'Header' => 'required|unique:Task,Header,'.$item_id.'|max:255',
-		    'Description' => 'required:Task,Description,'.$item_id.'|max:255',
+		    'Description' => ':Task,Description,'.$item_id.'|max:255',
 		    'Short_deadline' => 'required:Task,Short_deadline,'.$item_id,
 		    'Start' => 'required:Task,Start,'.$item_id,
 		    'End' => 'required:Task,End,'.$item_id,

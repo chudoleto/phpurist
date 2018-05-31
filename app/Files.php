@@ -9,7 +9,7 @@ class Files extends Model
 	protected $table = 'Files';
 	
 	protected $fillable = [
-		'File_link',
+	    'File_link', 'Task_id',
 	];
 	
 	// Put this in any model and use

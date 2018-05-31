@@ -22,9 +22,10 @@
 				<button type="submit" class="btn btn-default" name="btn_create" value="1"><i class="fas fa-plus-circle"></i> Создать</button>
 			</div>
 		</div>
-		
-	
-		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Название и описание подразделения</div></div>
+		<div class="row py-2 d-none d-sm-flex">
+				<div class="col-sm-3 font-weight-bold">Название подразделения</div>
+				<div class="col-sm-3 font-weight-bold">Описание подразделения</div>
+       </div>
 		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">

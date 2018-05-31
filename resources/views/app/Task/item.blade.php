@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Проект</h1>
+	<h1>Задача</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}
@@ -28,7 +28,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Описание</label>
-					<input name="Description" id="Description" value="{{ old('Description', null) ? old('Description') : $item->Description }}" type="text" class="form-control">
+					<textarea name="Description" id="Description" class="form-control">{{ old('Description', null) ? old('Description') : $item->Description }}</textarea>
 				</div>
 			</div>
 			<div class="col-sm-6">

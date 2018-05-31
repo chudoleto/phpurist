@@ -23,7 +23,7 @@
 	<div class="dropdown-menu">
 		<a class="dropdown-item" href="{{ url('/servise') }}">Сервисы</a>
 		<a class="dropdown-item" href="{{ url('/subdvision') }}">Подразделения</a>
-		<a class="dropdown-item" href="{{ url('/users_') }}">Пользователи</a>
+		<a class="dropdown-item" href="{{ url('/user') }}">Пользователи</a>
 	</div>
 </li>
 

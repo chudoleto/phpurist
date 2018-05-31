@@ -54,10 +54,10 @@ Route::post('/project', 'App\ProjectController@listPost');
 Route::get('/project/item/{id?}', 'App\ProjectController@itemGet');
 Route::post('/project/item/{id?}', 'App\ProjectController@itemPost');
 
-Route::get('/users_', 'App\UsersController@listGet');
-Route::post('/users_', 'App\UsersController@listPost');
-Route::get('/users_/item/{id?}', 'App\UsersController@itemGet');
-Route::post('/users_/item/{id?}', 'App\UsersController@itemPost');
+Route::get('/user', 'App\UserController@listGet');
+Route::post('/user', 'App\UserController@listPost');
+Route::get('/user/item/{id?}', 'App\UserController@itemGet');
+Route::post('/user/item/{id?}', 'App\UserController@itemPost');
 
 Route::get('/task', 'App\TaskController@listGet');
 Route::post('/task', 'App\TaskController@listPost');
@@ -73,6 +73,7 @@ Route::get('/card', 'App\CardController@listGet');
 Route::post('/card', 'App\CardController@listPost');
 Route::get('/card/item/{id?}', 'App\CardController@itemGet');
 Route::post('/card/item/{id?}', 'App\CardController@itemPost');
+
 
 Route::get('/app', 'App\AppHomeController@get');
 

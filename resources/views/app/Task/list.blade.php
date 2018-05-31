@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Проекты</h1>
+	<h1>Список задач</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}

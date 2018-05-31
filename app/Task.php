@@ -9,7 +9,7 @@ class Task extends Model
 	protected $table = 'Task';
 	
 	protected $fillable = [
-	    'Header','Description','Short_deadline','Start','End','Status',
+	    'Header','Description','Short_deadline','Start','End','Status','Project_id','Priority_task_id','Status_task_id',
 	];
 	
 	// Put this in any model and use

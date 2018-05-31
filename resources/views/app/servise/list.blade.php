@@ -23,8 +23,13 @@
 			</div>
 		</div>
 		
-	
-		<div class="row py-2"><div class="col-sm-6 font-weight-bold">Сервис: Код, Имя, Версия, Адресс</div></div>
+			<div class="row py-2 d-none d-sm-flex">
+				<div class="col-sm-2 font-weight-bold">Код </div>
+				<div class="col-sm-2 font-weight-bold">Имя </div>
+				<div class="col-sm-2 font-weight-bold">Версия </div>
+				<div class="col-sm-2 font-weight-bold">Адресс </div>
+           </div>
+		
 		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">

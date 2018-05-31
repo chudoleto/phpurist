@@ -54,7 +54,7 @@ class SubdvisionController extends Controller
 		
 		$this->validate($request, [
 			'Name' => 'required|unique:Subdvision,Name,'.$item_id.'|max:255',
-		    'Description' => 'required|unique:Subdvision,Description,'.$item_id.'|max:255',
+		    'Description' => ':Subdvision,Description,'.$item_id.'|max:255',
 		]);
 		
 		$item = Subdvision::findOrNew($item_id);

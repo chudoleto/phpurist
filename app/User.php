@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users_ extends Model
+class User extends Model
 {
 	protected $table = 'User';
 	
@@ -18,6 +18,11 @@ class Users_ extends Model
 	{
 		$obj = static::find($id);
 		return $obj ?: new static;
+	}
+	
+	public function getFullName()
+	{
+	    return $this->Name . '. ' . $this->Sename . '.' . $this->Otchestvo;
 	}
 	
 	public function Role()

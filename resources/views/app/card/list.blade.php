@@ -12,7 +12,7 @@
 		</div>
 	@endif
 	
-	<h1>Проекты</h1>
+	<h1>Карточка</h1>
 	
 	<form method="post">
 		{{ csrf_field() }}
@@ -42,13 +42,13 @@
 			<div class="col-sm-1"> {{ $item->Otvetchik }} </div>
 			<div class="col-sm-1"> {{ $item->Istec }} </div>
 			<div class="col-sm-1"> {{ $item->RIP }} </div>
-			<div class="col-sm-0.5"> {{ $item->executor }} </div>
+			<div class="col-sm-1"> {{ $item->executor }} </div>
 			<div class="col-sm-1"> {{ $item->Address_court }} </div>
-			<div class="col-sm-0.5"> {{ $item->Stage_rassmotrenia }} </div>
+			<div class="col-sm-1"> {{ $item->Stage_rassmotrenia }} </div>
 			<div class="col-sm-1"> {{ $item->Appellate_period }} </div>
 			<div class="col-sm-1"> {{ $item->Fines }} </div>
 			<div class="col-sm-1"> {{ $item->Description }} </div>
-			<div class="col-sm-1"> {{ ($item->Status_project) ? $item->Status_project->Description : '' }} </div>
+			<div class="col-sm-1"> {{ ($item->Task) ? $item->Task->Header : '' }} </div>
 			<div class="col-sm-2 text-center">
 				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
 				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}" title="Удалить"><i class="fas fa-trash-alt"></i></button>

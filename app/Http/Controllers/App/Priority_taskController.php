@@ -53,8 +53,8 @@ class Priority_taskController extends Controller
 		}
 		
 		$this->validate($request, [
-			'Description' => 'required|unique:Priority_task,Description,'.$item_id.'',
-		    'Private' => 'required|unique:Priority_task,Private,'.$item_id.'',
+			'Description' => ':Priority_task,Description,'.$item_id.'',
+		    'Private' => ':Priority_task,Private,'.$item_id.'',
 		]);
 		
 		$item = Priority_task::findOrNew($item_id);
