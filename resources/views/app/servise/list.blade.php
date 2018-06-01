@@ -27,7 +27,7 @@
 				<div class="col-sm-2 font-weight-bold">Код </div>
 				<div class="col-sm-2 font-weight-bold">Имя </div>
 				<div class="col-sm-2 font-weight-bold">Версия </div>
-				<div class="col-sm-2 font-weight-bold">Адресс </div>
+				<div class="col-sm-2 font-weight-bold">Адрес </div>
            </div>
 		
 		

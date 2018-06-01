@@ -24,7 +24,7 @@ class User extends Model
 	{
 		// убираем лишние пробелы по краям (вдруг они там есть)
 		// и всё с заглавной буквы
-		$sename = ucfirst(trim($this->Sename));
+	    $sename = ucfirst(trim($this->Sename)); // ucfirst - первый символ в верхний регистр. trim - удаляет пробелы сначала и с конца 
 		$name = ucfirst(trim($this->Name));
 		$оtchestvo = ucfirst(trim($this->Otchestvo));
 		
@@ -50,9 +50,9 @@ class User extends Model
 		if (!$sename && !$оtchestvo && $name) {
 			return $name;
 		} elseif ($sename && !$оtchestvo && $name) {
-			return $sename . ' ' . substr($name, 0, 1) . '.';
+			return $sename . ' ' . mb_substr($name, 0, 1) . '.';
 		} elseif ($sename && $оtchestvo && $name) {
-			return $sename . ' ' . substr($name, 0, 1) . '.' . ' ' . substr($оtchestvo, 0, 1) . '.';
+		    return $sename . ' ' . mb_substr($name, 0, 1) . '.' . ' ' . mb_substr($оtchestvo, 0, 1) . '.';
 		} else {
 			return $this->getFullName();
 		}

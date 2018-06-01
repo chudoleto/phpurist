@@ -59,7 +59,7 @@ class UserController extends Controller
 			'Name' => 'required:User,Name,'.$item_id.'|max:255',
 		    'Sename' => ':User,Sename,'.$item_id.'|max:255',
 		    'Otchestvo' => ':User,Otchestvo,'.$item_id.'|max:255',
-		    'Pol' => 'required:User,Pol,'.$item_id.'|max:255',
+		    'Pol' => ':User,Pol,'.$item_id.'|max:255',
 		    'Role_id' => 'required',
 		    'Subdvision_id' => 'required',
 		]);

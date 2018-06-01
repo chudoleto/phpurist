@@ -22,7 +22,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Логин</label>
-					<input name="Login" id="Login" value="{{ old('Login', null) ? old('Login') : $item->Login }}" type="text" class="form-control">
+					<input name="Login" id="Login" " value="{{ old('Login', null) ? old('Login') : $item->Login }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -59,6 +59,7 @@
 				<div class="form-group">
 					<label for="name">Пол</label>
 			<input name="Pol" id="Pol" value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" type="text" class="form-control">
+
 				</div>
 			</div>
 			<div class="col-sm-6">
