@@ -18,37 +18,27 @@
 		{{ csrf_field() }}
 		<input type="hidden" id="id" value="{{ ($item) ? $item->id : '' }}">
 		
-		<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-		
-	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="name">Название подразделения</label>
+					<input name="Name" id="Name" value="{{ old('Name', null) ? old('Name') : $item->Name }}" type="text" class="form-control">
+				</div>
+			</div>
+				<div class="col-sm-12">
+				<div class="form-group">
+					<label for="name">Описание подразделения</label>
+					<input name="Description" id="Description" value="{{ old('Description', null) ? old('Description') : $item->Description }}" type="text" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-primary" name="btn_ok" value="1">Ок</button>
+				<button type="submit" class="btn btn-default" name="btn_save" value="1">Сохранить</button>
+				<button type="submit" class="btn btn-default" name="btn_cancel" value="1">Отмена</button>
+			</div>
+		</div>
 	</form>
 	
 @endsection
