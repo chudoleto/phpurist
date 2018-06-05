@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateUristphpTable extends Migration
 {
@@ -18,6 +19,12 @@ class CreateUristphpTable extends Migration
 			$table->string('name')->nullable();
 			$table->timestamps();
 		});
+		DB::table('Role')->insert([
+			['id' => '1', 'name' => 'Администратор'],
+			['id' => '2', 'name' => 'Руководитель подразделения'],
+			['id' => '3', 'name' => 'Руководитель проекта'],
+			['id' => '4', 'name' => 'Сотрудник'],
+		]);
 		
 		Schema::create('Subdvision', function (Blueprint $table) {
 			$table->increments('id');
@@ -31,19 +38,34 @@ class CreateUristphpTable extends Migration
 			$table->text('Description');
 			$table->timestamps();
 		});
+		DB::table('Status_project')->insert([
+			['id' => '1', 'Description' => 'Новый',],
+			['id' => '2', 'Description' => 'В работе'],
+			['id' => '3', 'Description' => 'Завершен'],
+		]);
 		
 		Schema::create('Priority_task', function (Blueprint $table) {
 			$table->increments('id');
 			$table->text('Description');
-			$table->text('Private');
+			$table->text('Private')->nullable();
 			$table->timestamps();
 		});
+		DB::table('Priority_task')->insert([
+			['id' => '1', 'Description' => 'Не важная',],
+			['id' => '2', 'Description' => 'Текущая'],
+			['id' => '3', 'Description' => 'Важная'],
+		]);
 		
 		Schema::create('Status_task', function (Blueprint $table) {
 			$table->increments('id');
 			$table->text('name');
 			$table->timestamps();
 		});
+		DB::table('Status_task')->insert([
+			['id' => '1', 'name' => 'Новая',],
+			['id' => '2', 'name' => 'В работе'],
+			['id' => '3', 'name' => 'Завершена'],
+		]);
 		
 		Schema::create('Servise', function (Blueprint $table) {
 			$table->increments('id');
@@ -59,7 +81,7 @@ class CreateUristphpTable extends Migration
 			$table->string('login', 100)->unique();
 			$table->string('password');
 			$table->rememberToken();
-			$table->string('Email', 100)->unique()->default('');
+			$table->string('Email', 100)->nullable();
 			$table->string('Name')->nullable();
 			$table->string('Sename')->nullable();
 			$table->string('Otchestvo')->nullable();
@@ -72,6 +94,10 @@ class CreateUristphpTable extends Migration
 			$table->integer('Subdvision_id')->unsigned()->nullable();
 			$table->foreign('Subdvision_id')->references('id')->on('Subdvision');
 		});
+		
+		DB::table('User')->insert([
+			['id' => '1', 'login' => 'admin', 'password' => bcrypt('password'), 'Name' => 'Администратор'],
+		]);
 		
 		Schema::create('Project', function (Blueprint $table) {
 			$table->increments('id');

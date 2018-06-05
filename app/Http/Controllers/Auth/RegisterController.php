@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Subdvision;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -66,9 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'login' => $data['login'],
-            'password' => bcrypt($data['password']),
-        ]);
+    	$user = null;
+    	DB::beginTransaction();
+    	$user = User::create([
+    		'login' => $data['login'],
+    		'password' => bcrypt($data['password']),
+    		'Role_id' => '2',
+    	]);
+    	$subdv = Subdvision::create([
+    		'Name' => 'Подразделение №'.$user->id,
+    		'Description' => '',
+    	]);
+    	$user->Subdvision_id = $subdv->id;
+    	DB::commit();
+        return $user;
     }
 }
