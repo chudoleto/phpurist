@@ -28,7 +28,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Пароль</label>
-					<input name="Password" id="Password" value="{{ old('Password', null) ? old('Password') : $item->Password }}" type="text" class="form-control">
+					<input name="Password" id="Password" value="{{ old('Password', null) ? old('Password') : ($item->Password) ? '******' : '' }}" type="password" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -57,9 +57,39 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
+				<!-- 
 					<label for="name">Пол</label>
-			<input name="Pol" id="Pol" value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" type="text" class="form-control">
+				 -->
+			
+				<label for="name">Пол</label><br>
+                <div class="form-check-inline">
+                	<input class="form-check-input" type="radio" name="Pol" id="Pol1" value="male" {{ ($item->Pol == 'female') ? '' : 'checked' }}>
+                	<label class="form-check-label" for="Pol1">М</label>
+                </div>
+                <div class="form-check-inline">
+                  <input class="form-check-input" type="radio" name="Pol" id="Pol2" value="female" {{ ($item->Pol == 'female') ? 'checked' : '' }}>
+                  <label class="form-check-label" for="Pol2">Ж</label>
+                </div>
+			
+			<!-- 
+			
+			//<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="Pol"  value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Выберите пол
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item">М</a>
+    <a class="dropdown-item">Ж</a>
+  </div>
+  
 
+  <div class="btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="checkbox" id="Pol" value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" checked autocomplete="off"> М
+  </label>
+</div>
+</div>//
+-->
 				</div>
 			</div>
 			<div class="col-sm-6">

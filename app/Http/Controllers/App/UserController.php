@@ -8,6 +8,11 @@ use App\User;
 class UserController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function listGet(Request $request)
     {
         $list_of_user = User::orderBy('id')->get();
@@ -54,7 +59,7 @@ class UserController extends Controller
 		
 		$this->validate($request, [
 		    'Login' => 'required|unique:User,Login,'.$item_id.'|max:255',
-		    'Password' => 'required:User,Password,'.$item_id.'|max:255',
+		    'Password' => 'required:User,Password,'.$item_id.'|min:6',
 		    'Email' => 'required|unique:User,Email,'.$item_id.'|max:255',
 			'Name' => 'required:User,Name,'.$item_id.'|max:255',
 		    'Sename' => ':User,Sename,'.$item_id.'|max:255',
@@ -65,7 +70,17 @@ class UserController extends Controller
 		]);
 		
 		$item = User::findOrNew($item_id);
-		$item->fill($request->all());
+		$tmp_data = $request->all();
+		$tmp_password = '';
+		if ($tmp_data['Password'] !== '******') {
+		    $tmp_password = $tmp_data['Password'];
+		}
+		unset($tmp_data['Password']);
+		$item->fill($tmp_data);
+		
+		if ($tmp_password) {
+		    $item->password = bcrypt($tmp_password);
+		}
 		$item->save();
 		
 		if ($request->has('btn_ok')) {

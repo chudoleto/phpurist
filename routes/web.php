@@ -80,3 +80,6 @@ Route::get('/app', 'App\AppHomeController@get');
 Route::get('/more2', function() {
 	return view('more2');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
