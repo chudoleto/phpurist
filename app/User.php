@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -13,7 +12,7 @@ class User extends Authenticatable
 	protected $table = 'User';
 	
 	protected $fillable = [
-		'Login','Password','Email','Name','Sename','Otchestvo','Pol','Role_id','Subdvision_id'
+		'login','password','Email','Name','Sename','Otchestvo','Pol','Role_id','Subdvision_id'
 	];
 	
 	// Put this in any model and use
@@ -41,7 +40,7 @@ class User extends Authenticatable
 		$ret .= $sename;									// прибавляем фамилию
 		$ret .= ($name) ? ' '.$name : '';					// если имя задано прибавляем имя с пробелом в начале
 		$ret .= ($оtchestvo) ? ' '.$оtchestvo : '';			// аналогично с отчеством
-		$ret = tirm($ret);									// если фамилии нет, перед именем будет пробел, убираем его
+		$ret = trim($ret);									// если фамилии нет, перед именем будет пробел, убираем его
 		return $ret; // ВСЁ
 	}
 	

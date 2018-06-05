@@ -2,8 +2,8 @@
 
 @section('content')
 		<div class="row">
-			<div class="col">
-				Я приложение...
+			<div class="col text-center">
+				
 			</div>
 		</div>
 	

@@ -22,13 +22,13 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Логин</label>
-					<input name="Login" id="Login" " value="{{ old('Login', null) ? old('Login') : $item->Login }}" type="text" class="form-control">
+					<input name="login" id="Login" " value="{{ old('login', null) ? old('login') : $item->login }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Пароль</label>
-					<input name="Password" id="Password" value="{{ old('Password', null) ? old('Password') : ($item->Password) ? '******' : '' }}" type="password" class="form-control">
+					<input name="password" id="password" value="{{ old('password', null) ? old('password') : ($item->password) ? '******' : '' }}" type="password" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">

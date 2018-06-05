@@ -34,7 +34,7 @@
 		@foreach($list as $item)
 		<div class="row py-2 border-top">
 		
-			<div class="col-sm-1"> {{ $item->Login }} </div>
+			<div class="col-sm-1"> {{ $item->login }} </div>
 			<div class="col-sm-2"> {{ $item->Email }} </div>
 			<div class="col-sm-3"> {{ $item->getFullNameShort($item->Sename, $item->Sename, $item->Otchestvo) }}</div>
 			<div class="col-sm-1"> {{ $item->PolString() }} </div>

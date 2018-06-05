@@ -10,7 +10,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     
     public function listGet(Request $request)
@@ -58,8 +58,8 @@ class UserController extends Controller
 		}
 		
 		$this->validate($request, [
-		    'Login' => 'required|unique:User,Login,'.$item_id.'|max:255',
-		    'Password' => 'required:User,Password,'.$item_id.'|min:6',
+		    'login' => 'required|unique:User,login,'.$item_id.'|max:255',
+		    'password' => 'required:User,Password,'.$item_id.'|min:6',
 		    'Email' => 'required|unique:User,Email,'.$item_id.'|max:255',
 			'Name' => 'required:User,Name,'.$item_id.'|max:255',
 		    'Sename' => ':User,Sename,'.$item_id.'|max:255',
@@ -69,13 +69,15 @@ class UserController extends Controller
 		    'Subdvision_id' => 'required',
 		]);
 		
-		$item = User::findOrNew($item_id);
+		// дополнительная обработка данных формы
 		$tmp_data = $request->all();
 		$tmp_password = '';
-		if ($tmp_data['Password'] !== '******') {
-		    $tmp_password = $tmp_data['Password'];
+		if ($tmp_data['password'] !== '******') {
+		    $tmp_password = $tmp_data['password'];
 		}
-		unset($tmp_data['Password']);
+		unset($tmp_data['password']);
+		
+		$item = User::findOrNew($item_id);
 		$item->fill($tmp_data);
 		
 		if ($tmp_password) {

@@ -11,6 +11,9 @@
 |
 */
 
+// Authentication
+Auth::routes();
+
 Route::get('/', 'SiteController@home');
 Route::get('/contact', 'SiteController@contact');
 Route::get('/news', 'SiteController@news');
