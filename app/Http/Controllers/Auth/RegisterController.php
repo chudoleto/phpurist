@@ -80,6 +80,7 @@ class RegisterController extends Controller
     		'Description' => '',
     	]);
     	$user->Subdvision_id = $subdv->id;
+    	$user->save();
     	DB::commit();
         return $user;
     }
