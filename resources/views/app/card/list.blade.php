@@ -24,31 +24,31 @@
 		</div>
 		
 		<div class="row py-2 d-none d-sm-flex">
-			<div class="col-sm-1 font-weight-bold">Ответчик</div>
-			<div class="col-sm-1 font-weight-bold">Истец</div>
-			<div class="col-sm-1 font-weight-bold">RIP</div>
-			<div class="col-sm-0.5 font-weight-bold">Исполнитель</div>
-			<div class="col-sm-1 font-weight-bold">Адрес суда</div>
-			<div class="col-sm-0.5 font-weight-bold">Стадия рассмотрения</div>
-			<div class="col-sm-0.5 font-weight-bold">Аппеляционный период</div>
-			<div class="col-sm-1 font-weight-bold">Штрафы</div>
-			<div class="col-sm-1 font-weight-bold">Описание</div>
-			<div class="col-sm-1 font-weight-bold">Задача</div>
+			<div class="col-sm-1 font-weight-bold text-center">Ответчик</div>
+			<div class="col-sm-1 font-weight-bold text-center">Истец</div>
+			<div class="col-sm-1 font-weight-bold text-center">Стадия <br> рассмо<br>трения</div>
+			<div class="col-sm-1 font-weight-bold text-center">Исполн<br>итель</div>
+			<div class="col-sm-1 font-weight-bold text-center">Адрес суда</div>
+			<div class="col-sm-2 font-weight-bold text-center">RIP</div>
+			<div class="col-sm-2 font-weight-bold text-center">Аппеляционный<br>период</div>
+			<div class="col-sm-1 font-weight-bold text-center">Штрафы</div>
+			<div class="col-sm-1 font-weight-bold text-center">Описание</div>
+			<div class="col-sm-1 font-weight-bold text-center">Задача</div>
 		</div>
 		
 		@foreach($list as $item)
 		<div class="row py-2 border-top">
 		
-			<div class="col-sm-1"> {{ $item->Otvetchik }} </div>
-			<div class="col-sm-1"> {{ $item->Istec }} </div>
-			<div class="col-sm-1"> {{ $item->RIP }} </div>
-			<div class="col-sm-1"> {{ $item->executor }} </div>
-			<div class="col-sm-1"> {{ $item->Address_court }} </div>
-			<div class="col-sm-1"> {{ $item->Stage_rassmotrenia }} </div>
-			<div class="col-sm-1"> {{ $item->Appellate_period }} </div>
-			<div class="col-sm-1"> {{ $item->Fines }} </div>
-			<div class="col-sm-1"> {{ $item->Description }} </div>
-			<div class="col-sm-1"> {{ ($item->Task) ? $item->Task->Header : '' }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Otvetchik }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Istec }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Stage_rassmotrenia }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->executor }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Address_court }} </div>
+			<div class="col-sm-2 text-center"> {{ $item->RIP }} </div>
+			<div class="col-sm-2 text-center"> {{ $item->Appellate_period }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Fines }} </div>
+			<div class="col-sm-1 text-center"> {{ $item->Description }} </div>
+			<div class="col-sm-1 text-center"> {{ ($item->Task) ? $item->Task->Header : '' }} </div>
 			<div class="col-sm-2 text-center">
 				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
 				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_delete" value="{{ $item->id }}" title="Удалить"><i class="fas fa-trash-alt"></i></button>
