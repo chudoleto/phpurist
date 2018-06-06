@@ -78,14 +78,6 @@
 
 @section('code')
 	<script>
-		var action = function(e) {
-			var data = e.data
-			var txt = $(this).data('text');
-			alert(txt);
-		};
 
-		var x = 1;
-		$('#push1').click(action);
-		$('#push2').click(action);
 	</script>
 @endsection

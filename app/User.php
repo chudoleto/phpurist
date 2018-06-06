@@ -76,6 +76,6 @@ class User extends Authenticatable
 	    if (!$val) {
 	        $val = $this->Pol;
 	    }
-	    return ($val == 'female') ? 'Женщна' : 'Мужчина';
+	    return ($val == 'female') ? 'Женщина' : 'Мужчина';
 	}
 }

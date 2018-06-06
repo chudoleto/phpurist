@@ -4,14 +4,14 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Register</h4>
+					<h4 class="card-title">Регистрация</h4>
 					<form class="form-horizontal" method="POST"
 						action="{{ route('register') }}">
 						{{ csrf_field() }}
 
 						<div
 							class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
-							<label for="login">E-Mail Address</label> <input id="login"
+							<label for="login">Введите логин</label> <input id="login"
 								type="text" class="form-control" name="login"
 								value="{{ old('login') }}" required> @if ($errors->has('login'))
 							<span class="help-block"> <strong>{{ $errors->first('login') }}</strong>
@@ -20,7 +20,7 @@
 
 						<div
 							class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-							<label for="password">Password</label> <input id="password"
+							<label for="password">Введите пароль</label> <input id="password"
 								type="password" class="form-control" name="password" required>
 							@if ($errors->has('password')) <span class="help-block"> <strong>{{
 									$errors->first('password') }}</strong>
@@ -28,14 +28,14 @@
 						</div>
 
 						<div class="form-group">
-							<label for="password-confirm">Confirm Password</label> <input
+							<label for="password-confirm">Подтвердите пароль</label> <input
 								id="password-confirm" type="password" class="form-control"
 								name="password_confirmation" required>
 
 						</div>
 
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Register</button>
+							<button type="submit" class="btn btn-primary">Регистрация</button>
 						</div>
 					</form>
 				</div>

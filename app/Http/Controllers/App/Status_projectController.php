@@ -7,6 +7,11 @@ use App\Status_project;
 
 class Status_projectController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function listGet(Request $request)
     {

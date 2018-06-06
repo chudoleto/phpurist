@@ -7,6 +7,11 @@ use App\Files;
 
 class FilesController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function listGet(Request $request)
     {

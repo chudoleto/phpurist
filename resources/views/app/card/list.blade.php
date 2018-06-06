@@ -19,7 +19,7 @@
 		
 		<div class="row py-2">
 			<div class="col-sm-12">
-				<button type="submit" class="btn btn-default" name="btn_create" value="1"><i class="fas fa-plus-circle"></i> Создать</button>
+				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_create" value="1"><i class="fas fa-plus-circle"></i> Создать</button>
 			</div>
 		</div>
 		
@@ -50,8 +50,8 @@
 			<div class="col-sm-1"> {{ $item->Description }} </div>
 			<div class="col-sm-1"> {{ ($item->Task) ? $item->Task->Header : '' }} </div>
 			<div class="col-sm-2 text-center">
-				<button type="submit" class="btn btn-default" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
-				<button type="submit" class="btn btn-default" name="btn_delete" value="{{ $item->id }}" title="Удалить"><i class="fas fa-trash-alt"></i></button>
+				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
+				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_delete" value="{{ $item->id }}" title="Удалить"><i class="fas fa-trash-alt"></i></button>
 			</div>
 			
 		</div>

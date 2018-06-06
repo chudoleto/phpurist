@@ -8,6 +8,11 @@ use App\Status_task;
 class Status_taskController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function listGet(Request $request)
     {
         $list_of_status_task = Status_task::orderBy('id')->get();
