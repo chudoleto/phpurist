@@ -22,13 +22,13 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Логин</label>
-					<input name="login" id="Login" " value="{{ old('login', null) ? old('login') : $item->login }}" type="text" class="form-control">
+					<input name="login" id="Login" value="{{ old('login', null) ? old('login') : $item->login }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Пароль</label>
-					<input name="password" id="password" value="{{ old('password', null) ? old('password') : ($item->password) ? '******' : '' }}" type="password" class="form-control">
+					<input name="password" id="password" value="{{ old('password', null) ? old('password') : (($item->password) ? '******' : '') }}" type="password" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -100,14 +100,19 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label for="name">Подразделение</label>
-					<select name="Subdvision_id" id="Subdvision_id" class="custom-select">
-						{!! App\Subdvision::getSelectFieldOptions($item->Subdvision, old('Subdvision_id', null)) !!}
-					</select>
+			
+			@if (Auth::user()->Role->id == 2)
+				<input type="hidden" name="Subdvision_id" value="{{ $item->Subdvision_id }}">
+			@else
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="name">Подразделение</label>
+						<select name="Subdvision_id" id="Subdvision_id" class="custom-select">
+							{!! App\Subdvision::getSelectFieldOptions($item->Subdvision, old('Subdvision_id', null)) !!}
+						</select>
+					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 		<div class="row">
 			<div class="col-sm-12">

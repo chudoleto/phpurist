@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -20,7 +21,22 @@ class User extends Authenticatable
 	public static function findOrNew($id)
 	{
 		$obj = static::find($id);
-		return $obj ?: new static;
+		if (!$obj) {
+			$obj = new static;
+			if (Auth::user()->Role->id == 2) {
+				$obj->Subdvision_id = Auth::user()->Subdvision_id;
+			}
+		}
+		return $obj;
+		 
+	}
+	
+	public static function filterByActiveUserRole($list)
+	{
+		if (Auth::user()->Role->id == 2) {
+			$list = $list->where('Subdvision_id', '=', Auth::user()->Subdvision_id);
+		}
+		return $list;
 	}
 	
 	public function getFullName()

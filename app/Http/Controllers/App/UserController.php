@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Controllers\App;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
 
 class UserController extends Controller
 {
@@ -15,7 +15,10 @@ class UserController extends Controller
     
     public function listGet(Request $request)
     {
-        $list_of_user = User::orderBy('id')->get();
+        $list_of_user = new User;
+        $list_of_user = User::filterByActiveUserRole($list_of_user);
+        $list_of_user = $list_of_user->orderBy('id')->get();
+        
         return view('app.user.list', [
             'list' => $list_of_user,
         ]);
