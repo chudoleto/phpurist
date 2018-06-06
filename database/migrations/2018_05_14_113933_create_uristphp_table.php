@@ -108,6 +108,9 @@ class CreateUristphpTable extends Migration
 			
 			$table->integer('Status_project_id')->unsigned()->nullable();
 			$table->foreign('Status_project_id')->references('id')->on('Status_project');
+			
+			$table->integer('User_id')->unsigned()->nullable();
+			$table->foreign('User_id')->references('id')->on('User');
 		});
 		
 		Schema::create('Task', function (Blueprint $table) {

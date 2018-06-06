@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Subdvision;
+use Illuminate\Support\Facades\Auth;
 
 class SubdvisionController extends Controller
 {
@@ -45,6 +46,11 @@ class SubdvisionController extends Controller
 	public function itemGet(Request $request, $item_id = '')
 	{
 	    $item = Subdvision::findOrNew($item_id);
+	    if (Auth::user()->Role->id == 2) {
+	    	if ($item->Subdvision_id !== Auth::user()->Subdvision_id) {
+	    		return redirect()->action('App\SubdvisionController@listGet');
+	    	}
+	    }
 		
 		return view('app.subdvision.item', [
 			'item' => $item,

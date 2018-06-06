@@ -21,6 +21,7 @@ class User extends Authenticatable
 	public static function findOrNew($id)
 	{
 		$obj = static::find($id);
+		
 		if (!$obj) {
 			$obj = new static;
 			if (Auth::user()->Role->id == 2) {
@@ -33,8 +34,12 @@ class User extends Authenticatable
 	
 	public static function filterByActiveUserRole($list)
 	{
-		if (Auth::user()->Role->id == 2) {
+		if (Auth::user()->Role->id == 1) {
+			//
+		} elseif (Auth::user()->Role->id == 2) {
 			$list = $list->where('Subdvision_id', '=', Auth::user()->Subdvision_id);
+		} else {
+			$list = $list->where('Subdvision_id', '=', 99999);
 		}
 		return $list;
 	}

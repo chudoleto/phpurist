@@ -17,6 +17,13 @@ class Role extends Model
 	public static function findOrNew($id)
 	{
 		$obj = static::find($id);
+		
+		if ($obj) {
+			return $obj;
+		} else {
+			return new static;
+		}
+		
 		return $obj ?: new static;
 	}
 	
