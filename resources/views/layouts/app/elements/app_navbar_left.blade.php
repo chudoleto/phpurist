@@ -30,7 +30,7 @@
 		
 	@if (Auth::user()->Role->id == 2)
 		@if(Auth::user()->Subdvision)
-			<li class="nav-item"><a class="nav-link" href="{{ url( '/subdvision/item/' . Auth::user()->Subdvision->id ) }}">Подразделение</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ url('/subdvision/item/' . Auth::user()->Subdvision->id) }}">Подразделение</a></li>
 		@endif
 		<li class="nav-item"><a class="nav-link" href="{{ url('/user') }}">Пользователи</a></li>
 	@endif
