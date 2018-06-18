@@ -9,7 +9,7 @@ class Card extends Model
 	protected $table = 'card';
 	
 	protected $fillable = [
-	    'Otvetchik','Istec','RIP','executor','Address_court','Stage_rassmotrenia','Appellate_period','Fines','Description','Task_id',
+	    'Otvetchik','Istec','executor','Address_court','Stage_rassmotrenia','Appellate_period','Fines','Description','Task_id',
 	];
 	
 	// Put this in any model and use

@@ -34,25 +34,19 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Крайний срок</label>
-					<input name="Short_deadline" id="Short_deadline" value="{{ old('Short_deadline', null) ? old('Short_deadline') : $item->Short_deadline }}" type="text" class="form-control">
+					<input name="Short_deadline" id="Short_deadline" value="{{ old('Short_deadline', null) ? old('Short_deadline') :  date('Y-m-d', strtotime($item->Short_deadline)) }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Начало</label>
-					<input name="Start" id="Start" value="{{ old('Start', null) ? old('Start') : $item->Start }}" type="text" class="form-control">
+					<input name="Start" id="Start" value="{{ old('Start', null) ? old('Start') : date('Y-m-d', strtotime($item->Start)) }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Конец </label>
-					<input name="End" id="End" value="{{ old('End', null) ? old('End') : $item->End}}" type="text" class="form-control">
-				</div>
-			</div>
-				<div class="col-sm-6">
-				<div class="form-group">
-					<label for="name">Статус</label>
-					<input name="Status" id="Status" value="{{ old('Status', null) ? old('Status') : $item->Status }}" type="text" class="form-control">
+					<input name="End" id="End" value="{{ old('End', null) ? old('End') : date('Y-m-d', strtotime($item->End)) }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">

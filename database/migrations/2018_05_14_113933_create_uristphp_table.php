@@ -96,7 +96,7 @@ class CreateUristphpTable extends Migration
 		});
 		
 		DB::table('User')->insert([
-			['id' => '1', 'login' => 'admin', 'password' => bcrypt('password'), 'Name' => 'Администратор', 'Role_id' => 1],
+			['id' => '1', 'login' => 'admin', 'Role_id' => '1', 'password' => bcrypt('password'), 'Name' => 'Администратор', 'Role_id' => 1],
 		]);
 		
 		Schema::create('Project', function (Blueprint $table) {
@@ -120,7 +120,6 @@ class CreateUristphpTable extends Migration
 			$table->datetime('Short_deadline');
 			$table->datetime('Start')->nullable();
 			$table->datetime('End')->nullable();
-			$table->string('Status');
 			$table->timestamps();
 			
 			$table->integer('Project_id')->unsigned()->nullable();
@@ -149,7 +148,6 @@ class CreateUristphpTable extends Migration
 			$table->increments('id');
 			$table->string('Otvetchik')->nullable();
 			$table->string('Istec')->nullable();
-			$table->string('RIP');
 			$table->string('executor');
 			$table->string('Address_court')->nullable();
 			$table->string('Stage_rassmotrenia')->nullable();

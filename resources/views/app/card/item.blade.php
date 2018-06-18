@@ -33,12 +33,6 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="name">RIP</label>
-					<input name="RIP" id="RIP" value="{{ old('RIP', null) ? old('RIP') : $item->RIP }}" type="text" class="form-control">
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="form-group">
 					<label for="name">Исполнитель</label>
 					<input name="executor" id="executor" value="{{ old('executor', null) ? old('executor') : $item->executor }}" type="text" class="form-control">
 				</div>

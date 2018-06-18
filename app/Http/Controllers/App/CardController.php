@@ -60,7 +60,6 @@ class CardController extends Controller
 		$this->validate($request, [
 			'Otvetchik' => 'required:Card,Otvetchik,'.$item_id.'|max:255',
 		    'Istec' => 'required:Card,Istec,'.$item_id.'|max:255',
-		    'RIP' => 'required:Card,RIP,'.$item_id.'|max:255',
 		    'executor' => 'required:Card,executor,'.$item_id.'|max:255',
 		    'Address_court' => 'required:Card,Address_court,'.$item_id.'|max:255',
 		    'Stage_rassmotrenia' => 'required:Card,Stage_rassmotrenia,'.$item_id.'|max:255',

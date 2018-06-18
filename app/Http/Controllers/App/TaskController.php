@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -60,10 +61,9 @@ class TaskController extends Controller
 		$this->validate($request, [
 			'Header' => 'required|unique:Task,Header,'.$item_id.'|max:255',
 		    'Description' => ':Task,Description,'.$item_id.'|max:255',
-		    'Short_deadline' => 'required:Task,Short_deadline,'.$item_id,
-		    'Start' => 'required:Task,Start,'.$item_id,
-		    'End' => 'required:Task,End,'.$item_id,
-		    'Status' => 'required:Task,Status,'.$item_id.'|max:255',
+		    'Short_deadline' => 'required:Task,Short_deadline, date_format:Y-m-d'.$item_id,
+		    'Start' => 'required:Task,Start, date_format:Y-m-d'.$item_id,
+		    'End' => 'required:Task,End, date_format:Y-m-d'.$item_id,
 			'Project_id' => 'required',
 		    'Priority_task_id' => 'required',
 		    'Status_task_id' => 'required',
@@ -71,6 +71,9 @@ class TaskController extends Controller
 		
 		$item = Task::findOrNew($item_id);
 		$item->fill($request->all());
+		if(!$item->User_id){
+		    $item->User_id = Auth::user()->id;
+		}
 		$item->save();
 		
 		if ($request->has('btn_ok')) {

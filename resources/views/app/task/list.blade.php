@@ -29,7 +29,6 @@
 			<div class="col-sm-1 font-weight-bold text-center">Крайний срок</div>
 			<div class="col-sm-2 font-weight-bold text-center">Начало</div>
 			<div class="col-sm-1 font-weight-bold text-center">Конец</div>
-			<div class="col-sm-2 font-weight-bold text-center">Статус</div>
 			<div class="col-sm-1 font-weight-bold text-center">Проект</div>
 			<div class="col-sm-2 font-weight-bold text-center">Приоритет задачи</div>
 			<div class="col-sm-1 font-weight-bold text-center">Статус задачи</div>
@@ -42,10 +41,9 @@
 		
 			<div class="col-sm-1 text-center"> {{ $item->Header }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Description }} </div>
-			<div class="col-sm-1 text-center"> {{ $item->Short_deadline }} </div>
-			<div class="col-sm-2 text-center"> {{ $item->Start }} </div>
-			<div class="col-sm-1 text-center"> {{ $item->End }} </div>
-			<div class="col-sm-2 text-center"> {{ $item->Status }} </div>
+			<div class="col-sm-1 text-center"> {{ date('d.m.Y', strtotime($item->Short_deadline)) }} </div>
+			<div class="col-sm-2 text-center"> {{ date('d.m.Y', strtotime($item->Start)) }} </div>
+			<div class="col-sm-1 text-center"> {{ date('d.m.Y', strtotime($item->End)) }} </div>
 			<div class="col-sm-1 text-center"> {{ ($item->Project) ? $item->Project->Name : '' }} </div>
 			<div class="col-sm-2 text-center"> {{ ($item->Priority_task) ? $item->Priority_task->Description : '' }} </div>
 			<div class="col-sm-1 text-center"> {{ ($item->Status_task) ? $item->Status_task->name : '' }} </div>

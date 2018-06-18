@@ -29,7 +29,6 @@
 			<div class="col-sm-1 font-weight-bold text-center">Стадия <br> рассмо<br>трения</div>
 			<div class="col-sm-1 font-weight-bold text-center">Исполн<br>итель</div>
 			<div class="col-sm-1 font-weight-bold text-center">Адрес суда</div>
-			<div class="col-sm-2 font-weight-bold text-center">RIP</div>
 			<div class="col-sm-2 font-weight-bold text-center">Аппеляционный<br>период</div>
 			<div class="col-sm-1 font-weight-bold text-center">Штрафы</div>
 			<div class="col-sm-1 font-weight-bold text-center">Описание</div>
@@ -44,7 +43,6 @@
 			<div class="col-sm-1 text-center"> {{ $item->Stage_rassmotrenia }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->executor }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Address_court }} </div>
-			<div class="col-sm-2 text-center"> {{ $item->RIP }} </div>
 			<div class="col-sm-2 text-center"> {{ $item->Appellate_period }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Fines }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Description }} </div>

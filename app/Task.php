@@ -2,14 +2,19 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
-class Task extends Model
+
+class Task extends Authenticatable
 {
+    use Notifiable;
+    
 	protected $table = 'task';
 	
 	protected $fillable = [
-		'Header','Description','Short_deadline','Start','End','Status','Project_id','Priority_task_id','Status_task_id','User_id',
+		'Header','Description','Short_deadline','Start','End','Project_id','Priority_task_id','Status_task_id','User_id',
 	];
 	
 	// Put this in any model and use
@@ -35,7 +40,7 @@ class Task extends Model
 	    return $this->belongsTo('App\Status_task', 'Status_task_id');
 	}
 	
-	public static function getSelectFieldOptions($value = '', $old_id = '')
+	public static function getSelectFieldOptions($value = '', $old_id = '',  $allow_empty = false)
 	{
 	    $ret = '';
 	    
@@ -45,9 +50,21 @@ class Task extends Model
 	    } elseif ($old_id) {
 	        $propper_id = $old_id;
 	    }
-	    $items = self::orderBy('id')->get();
+	    $items = self::orderBy('id');
+	    if (Auth::user()->Role->id == 1) {
+	        //
+	    } elseif (Auth::user()->Role->id == 2) {
+	        $items = $items
+	        ->where('Subdvision_id', '=', Auth::user()->Subdvision_id)
+	        ->where(function($items) {
+	            $items->orWhere('Role_id', '=', 2)->orWhere('Role_id', '=', 3);
+	        });
+	    } elseif (Auth::user()->Role->id == 3) {
+	        $items = $items->where('id', '=', Auth::user()->id);
+	    }
+	    $items = $items->get();
 	    
-	    $ret = '<option disabled selected> -- Не выбрано -- </option>';
+	    $ret = '<option ' . ($allow_empty ? '' : 'disabled ') . 'value = "" selected> -- Не выбрано -- </option>';
 	    foreach($items as $item) {
 	        $ret .= '<option';
 	        $ret .= ' value="'.$item->id.'"';
@@ -59,5 +76,4 @@ class Task extends Model
 	    
 	    return $ret;
 	}
-	
 }
