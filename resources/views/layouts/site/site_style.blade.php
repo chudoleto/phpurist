@@ -750,4 +750,8 @@ tbody:hover tr:hover td {
     text-align: center;
 }
 
+.info-string{
+text-align: center;
+}
+
 </style>

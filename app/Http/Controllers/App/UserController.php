@@ -62,9 +62,9 @@ class UserController extends Controller
 		}
 		
 		$this->validate($request, [
-		    'login' => 'required|unique:User,login,'.$item_id.'|max:255',
+		    'login' => 'required|unique:User,login,'.$item_id.'|max:50',
 		    'password' => 'required:User,Password,'.$item_id.'|min:6',
-		    'Email' => 'required|unique:User,Email,'.$item_id.'|max:255',
+		    'Email' => 'required|unique:User,Email,'.$item_id.'|max:50',
 			'Name' => 'required:User,Name,'.$item_id.'|max:255',
 		    'Sename' => ':User,Sename,'.$item_id.'|max:255',
 		    'Otchestvo' => ':User,Otchestvo,'.$item_id.'|max:255',

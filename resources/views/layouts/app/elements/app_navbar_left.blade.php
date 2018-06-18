@@ -1,4 +1,3 @@
-
 @if (!Auth::guest())
 
 	@if (Auth::user()->Role->id == 1)
@@ -13,6 +12,9 @@
 				<a class="dropdown-item" href="{{ url('/status_task') }}">Статусы задач</a>
 				<a class="dropdown-item" href="{{ url('/role') }}">Роли</a>
 				<a class="dropdown-item" href="{{ url('files') }}">Файлы</a>
+				<a class="dropdown-item" href="{{ url('/task') }}">Задачи</a>
+				<a class="dropdown-item" href="{{ url('/card') }}">Карточка</a>
+				<a class="dropdown-item" href="{{ url('/project') }}">Проекты</a>
 			</div>
 		</li>
 		
@@ -36,10 +38,16 @@
 	@endif
 	
 	@if (Auth::user()->Role->id == 1 || Auth::user()->Role->id == 2 || Auth::user()->Role->id == 3)
-		<li class="nav-item"><a class="nav-link" href="{{ url('/project') }}">Проекты</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ url('/task') }}">Задачи</a></li>
 	@endif
 	
-	<li class="nav-item"><a class="nav-link" href="{{ url('/task') }}">Задачи</a></li>
-	<li class="nav-item"><a class="nav-link" href="{{ url('/card') }}">Карточка</a></li>
+	
+	@if (Auth::user()->Role->id == 2 || Auth::user()->Role->id == 3 || Auth::user()->Role->id == 4)
+		<li class="nav-item"><a class="nav-link" href="{{ url('/task') }}">Задачи</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ url('/card') }}">Карточка</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ url('files') }}">Файлы</a></li>
+	@endif
+	
+
 
 @endif

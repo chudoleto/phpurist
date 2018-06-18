@@ -10,13 +10,12 @@
     </div>
     <div class="img-background"></div>
  
-    	Контакты
+    	<div class = "info-string">Связаться с нами можно по электронной почте: chudoleto@ya.ru</div>
 				
-				<br><br>
-				<button class="btn btn-default" id="push2">Push 2</button>
-				</div>
-</main>
-			
+				
+				
+			</main>
+	  </div>
 			
 	</div>
 	
@@ -24,10 +23,6 @@
 
 @section('code')
 	<script>
-		var action = function(e) {
-			alert('Ok2');
-		};
-		
-		$('#push2').click(action);
+	
 	</script>
 @endsection

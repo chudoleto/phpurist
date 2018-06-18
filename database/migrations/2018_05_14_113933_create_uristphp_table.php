@@ -78,10 +78,10 @@ class CreateUristphpTable extends Migration
 		
 		Schema::create('User', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('login', 100)->unique();
+			$table->string('login', 50)->unique();
 			$table->string('password');
 			$table->rememberToken();
-			$table->string('Email', 100)->nullable();
+			$table->string('Email', 50)->nullable();
 			$table->string('Name')->nullable();
 			$table->string('Sename')->nullable();
 			$table->string('Otchestvo')->nullable();

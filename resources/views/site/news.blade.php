@@ -10,7 +10,7 @@
     </div>
     <div class="img-background"></div>
  
-    Новости
+  <div class = "info-string"> Здесь будут новости касающиеся обновлений проекта. </div>
 				
 		
 </main>
