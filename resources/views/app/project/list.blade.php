@@ -34,7 +34,7 @@
 		<div class="row py-2 border-top">
 		
 			<div class="col-sm-3"> {{ $item->Name }} </div>
-			<div class="col-sm-2"> {{ $item->Deadline }} </div>
+			<div class="col-sm-2"> {{ date('d.m.Y', strtotime($item->Deadline)) }} </div>
 			<div class="col-sm-3"> {{ $item->Comment }} </div>
 			<div class="col-sm-2"> {{ ($item->Status_project) ? $item->Status_project->Description : '' }} </div>
 			<div class="col-sm-2 text-center">

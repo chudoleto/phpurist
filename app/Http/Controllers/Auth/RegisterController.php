@@ -55,7 +55,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'password' => 'required|string|max:255',
+            'login' => 'required|string|max:50|unique:user,login',
+        	'Name' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -73,6 +74,7 @@ class RegisterController extends Controller
     	$user = User::create([
     		'login' => $data['login'],
     		'password' => bcrypt($data['password']),
+    		'Name' => $data['Name'],
     		'Role_id' => '2',
     	]);
     	$subdv = Subdvision::create([

@@ -28,7 +28,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="name">Крайний срок</label>
-					<input name="Deadline" id="Deadline" value="{{ old('Deadline', null) ? old('Deadline') : $item->Deadline }}" type="text" class="form-control">
+					<input name="Deadline" id="Deadline" value="{{ old('Deadline', null) ? old('Deadline') : date('Y-m-d', strtotime($item->Deadline)) }}" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -42,6 +42,14 @@
 					<label for="name">Статус</label>
 					<select name="Status_project_id" id="Status_project_id" class="custom-select">
 						{!! App\Status_project::getSelectFieldOptions($item->Status_project, old('Status_project_id', null)) !!}
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="name">Ответственный</label>
+					<select name="User_id" id="User_id" class="custom-select">
+						{!! App\User::getSelectFieldOptions($item->User, old('User_id', null), true) !!}
 					</select>
 				</div>
 			</div>

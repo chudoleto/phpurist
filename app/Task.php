@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-	protected $table = 'Task';
+	protected $table = 'task';
 	
 	protected $fillable = [
-	    'Header','Description','Short_deadline','Start','End','Status','Project_id','Priority_task_id','Status_task_id',
+		'Header','Description','Short_deadline','Start','End','Status','Project_id','Priority_task_id','Status_task_id','User_id',
 	];
 	
 	// Put this in any model and use

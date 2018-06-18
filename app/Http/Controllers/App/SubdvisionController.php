@@ -47,7 +47,7 @@ class SubdvisionController extends Controller
 	{
 	    $item = Subdvision::findOrNew($item_id);
 	    if (Auth::user()->Role->id == 2) {
-	    	if ($item->Subdvision_id !== Auth::user()->Subdvision_id) {
+	    	if ($item->id !== Auth::user()->Subdvision_id) {
 	    		return redirect()->action('App\SubdvisionController@listGet');
 	    	}
 	    }

@@ -57,39 +57,15 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-				<!-- 
-					<label for="name">Пол</label>
-				 -->
-			
-				<label for="name">Пол</label><br>
-                <div class="form-check-inline">
-                	<input class="form-check-input" type="radio" name="Pol" id="Pol1" value="male" {{ ($item->Pol == 'female') ? '' : 'checked' }}>
-                	<label class="form-check-label" for="Pol1">М</label>
-                </div>
-                <div class="form-check-inline">
-                  <input class="form-check-input" type="radio" name="Pol" id="Pol2" value="female" {{ ($item->Pol == 'female') ? 'checked' : '' }}>
-                  <label class="form-check-label" for="Pol2">Ж</label>
-                </div>
-			
-			<!-- 
-			
-			//<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="Pol"  value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Выберите пол
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item">М</a>
-    <a class="dropdown-item">Ж</a>
-  </div>
-  
-
-  <div class="btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="checkbox" id="Pol" value="{{ old('Pol', null) ? old('Pol') : $item->Pol }}" checked autocomplete="off"> М
-  </label>
-</div>
-</div>//
--->
+					<label for="name">Пол</label><br>
+	                <div class="form-check-inline">
+	                	<input class="form-check-input" type="radio" name="Pol" id="Pol1" value="male" {{ ($item->Pol == 'female') ? '' : 'checked' }}>
+	                	<label class="form-check-label" for="Pol1">М</label>
+	                </div>
+	                <div class="form-check-inline">
+	                  <input class="form-check-input" type="radio" name="Pol" id="Pol2" value="female" {{ ($item->Pol == 'female') ? 'checked' : '' }}>
+	                  <label class="form-check-label" for="Pol2">Ж</label>
+	                </div>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -101,18 +77,14 @@
 				</div>
 			</div>
 			
-			@if (Auth::user()->Role->id == 2)
-				<input type="hidden" name="Subdvision_id" value="{{ $item->Subdvision_id }}">
-			@else
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="name">Подразделение</label>
-						<select name="Subdvision_id" id="Subdvision_id" class="custom-select">
-							{!! App\Subdvision::getSelectFieldOptions($item->Subdvision, old('Subdvision_id', null)) !!}
-						</select>
-					</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="name">Подразделение</label>
+					<select name="Subdvision_id" id="Subdvision_id" class="custom-select">
+						{!! App\Subdvision::getSelectFieldOptions($item->Subdvision, old('Subdvision_id', null)) !!}
+					</select>
 				</div>
-			@endif
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">

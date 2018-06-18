@@ -14,7 +14,7 @@
 				<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Главная</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Контакты</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{ url('/news') }}">Новости</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url('/app') }}">Вход</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ url('/appl') }}">Вход</a></li>
 			</ul>
 		</div>
 	</nav>

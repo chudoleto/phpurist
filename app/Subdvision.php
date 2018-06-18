@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Subdvision extends Model
 {
-	protected $table = 'Subdvision';
+	protected $table = 'subdvision';
 	
 	protected $fillable = [
 	    'Name','Description',
@@ -30,7 +31,11 @@ class Subdvision extends Model
 	    } elseif ($old_id) {
 	        $propper_id = $old_id;
 	    }
-	    $items = self::orderBy('id')->get();
+	    $items = self::orderBy('id');
+	    if (Auth::user()->Role->id != 1) {
+	    	$items = $items->where('id', '=', Auth::user()->Subdvision_id);
+	    }
+	    $items = $items->get();
 	    
 	    $ret = '<option disabled selected> -- Не выбрано -- </option>';
 	    foreach($items as $item) {

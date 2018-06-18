@@ -78,7 +78,7 @@ Route::get('/card/item/{id?}', 'App\CardController@itemGet');
 Route::post('/card/item/{id?}', 'App\CardController@itemPost');
 
 
-Route::get('/app', 'App\AppHomeController@get');
+Route::get('/appl', 'App\AppHomeController@get');
 
 Route::get('/more2', function() {
 	return view('more2');

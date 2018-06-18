@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Priority_task extends Model
 {
-	protected $table = 'Priority_task';
+	protected $table = 'priority_task';
 	
 	protected $fillable = [
 	    'Description','Private',

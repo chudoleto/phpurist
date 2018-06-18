@@ -96,7 +96,7 @@ class CreateUristphpTable extends Migration
 		});
 		
 		DB::table('User')->insert([
-			['id' => '1', 'login' => 'admin', 'password' => bcrypt('password'), 'Name' => 'Администратор'],
+			['id' => '1', 'login' => 'admin', 'password' => bcrypt('password'), 'Name' => 'Администратор', 'Role_id' => 1],
 		]);
 		
 		Schema::create('Project', function (Blueprint $table) {
@@ -131,6 +131,9 @@ class CreateUristphpTable extends Migration
 			
 			$table->integer('Status_task_id')->unsigned()->nullable();
 			$table->foreign('Status_task_id')->references('id')->on('Status_task');
+			
+			$table->integer('User_id')->unsigned()->nullable();
+			$table->foreign('User_id')->references('id')->on('User');
 		});
 		
 		Schema::create('Files', function (Blueprint $table) {

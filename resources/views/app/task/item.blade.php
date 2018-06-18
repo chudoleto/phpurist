@@ -79,6 +79,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="name">Ответственный</label>
+					<select name="User_id" id="User_id" class="custom-select">
+						{!! App\User::getSelectFieldOptions($item->User, old('User_id', null), true) !!}
+					</select>
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">

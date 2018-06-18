@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     
-	protected $table = 'User';
+	protected $table = 'user';
 	
 	protected $fillable = [
 		'login','password','Email','Name','Sename','Otchestvo','Pol','Role_id','Subdvision_id'
@@ -98,5 +98,42 @@ class User extends Authenticatable
 	        $val = $this->Pol;
 	    }
 	    return ($val == 'female') ? 'Женщина' : 'Мужчина';
+	}
+	
+	public static function getSelectFieldOptions($value = '', $old_id = '', $allow_empty = false)
+	{
+		$ret = '';
+		
+		$propper_id = '';
+		if ($value) {
+			$propper_id = $value->id;
+		} elseif ($old_id) {
+			$propper_id = $old_id;
+		}
+		$items = self::orderBy('id');
+		if (Auth::user()->Role->id == 1) {
+			//
+		} elseif (Auth::user()->Role->id == 2) {
+			$items = $items
+				->where('Subdvision_id', '=', Auth::user()->Subdvision_id)
+				->where(function($items) {
+					$items->orWhere('Role_id', '=', 2)->orWhere('Role_id', '=', 3);
+				});
+		} elseif (Auth::user()->Role->id == 3) {
+			$items = $items->where('id', '=', Auth::user()->id);
+		}
+		$items = $items->get();
+		
+		$ret = '<option ' . ($allow_empty ? '' : 'disabled ') . 'value = "" selected> -- Не выбрано -- </option>';
+		foreach($items as $item) {
+			$ret .= '<option';
+			$ret .= ' value="'.$item->id.'"';
+			$ret .= ($item->id == $propper_id) ? ' selected' : '';
+			$ret .= '>';
+			$ret .= $item->getFullNameShort();
+			$ret .= '</option>';
+		}
+		
+		return $ret;
 	}
 }

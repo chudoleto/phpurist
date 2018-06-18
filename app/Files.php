@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Files extends Model
 {
-	protected $table = 'Files';
+	protected $table = 'files';
 	
 	protected $fillable = [
 	    'File_link', 'Task_id',

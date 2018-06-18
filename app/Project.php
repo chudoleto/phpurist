@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-	protected $table = 'Project';
+	protected $table = 'project';
 	
 	protected $fillable = [
 		'Name','Deadline','Deadline','Comment','Status_project_id',
@@ -23,6 +23,11 @@ class Project extends Model
 	public function Status_project()
 	{
 		return $this->belongsTo('App\Status_project', 'Status_project_id');
+	}
+	
+	public function User()
+	{
+		return $this->belongsTo('App\User', 'User_id');
 	}
 	
 	public static function getSelectFieldOptions($value = '', $old_id = '')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Project;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -59,11 +60,16 @@ class ProjectController extends Controller
 		
 		$this->validate($request, [
 			'Name' => 'required|unique:Project,Name,'.$item_id.'|max:255',
+			'Deadline' => 'required|date_format:Y-m-d',
 			'Status_project_id' => 'required',
+			'Comment' => 'required',
 		]);
 		
 		$item = Project::findOrNew($item_id);
 		$item->fill($request->all());
+		if (!$item->User_id) {
+			$item->User_id = Auth::user()->id;
+		}
 		$item->save();
 		
 		if ($request->has('btn_ok')) {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
-	protected $table = 'Card';
+	protected $table = 'card';
 	
 	protected $fillable = [
 	    'Otvetchik','Istec','RIP','executor','Address_court','Stage_rassmotrenia','Appellate_period','Fines','Description','Task_id',

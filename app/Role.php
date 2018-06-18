@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Role extends Model
 {
-	protected $table = 'Role';
+	protected $table = 'role';
 	
 	protected $fillable = [
 		'name',
@@ -37,7 +38,17 @@ class Role extends Model
 	    } elseif ($old_id) {
 	        $propper_id = $old_id;
 	    }
-	    $items = self::orderBy('id')->get();
+	    $items = self::orderBy('id');
+	    if (Auth::user()->Role->id == 1) {
+	    	//
+	    } elseif (Auth::user()->Role->id == 2) {
+	    	$items = $items->whereNotIn('id', [1]);
+	    } elseif (Auth::user()->Role->id == 3) {
+	    	$items = $items->whereIn('id', [3]);
+	    } elseif (Auth::user()->Role->id == 4) {
+	    	$items = $items->whereIn('id', [4]);
+	    }
+	    $items = $items->get();
 	    
 	    $ret = '<option disabled selected> -- Не выбрано -- </option>';
 	    foreach($items as $item) {
