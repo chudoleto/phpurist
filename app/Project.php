@@ -9,7 +9,7 @@ class Project extends Model
 	protected $table = 'project';
 	
 	protected $fillable = [
-		'Name','Deadline','Deadline','Comment','Status_project_id',
+		'Name','Deadline','Deadline','Comment','Status_project_id', 'User_id',
 	];
 	
 	// Put this in any model and use
