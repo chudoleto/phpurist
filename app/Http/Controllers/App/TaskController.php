@@ -16,7 +16,17 @@ class TaskController extends Controller
 
     public function listGet(Request $request)
     {
+        
+        
+        
+        $list_of_task = new Task;
+        $list_of_task = Task::filterByActiveUserTask($list_of_task);
+        $list_of_task = $list_of_task->orderBy('id')->get();
+        
+        
         $list_of_task = Task::orderBy('id')->get();
+        
+        
         return view('app.task.list', [
             'list' => $list_of_task,
         ]);

@@ -6,7 +6,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
-
 class Task extends Authenticatable
 {
     use Notifiable;
@@ -14,7 +13,7 @@ class Task extends Authenticatable
 	protected $table = 'task';
 	
 	protected $fillable = [
-		'Header','Description','Short_deadline','Start','End','Project_id','Priority_task_id','Status_task_id','User_id',
+	    'Header','Description','Short_deadline','Start','End','Project_id','Priority_task_id','Status_task_id','User_id', 'Sudbvision_id',
 	];
 	
 	// Put this in any model and use
@@ -24,6 +23,52 @@ class Task extends Authenticatable
 		$obj = static::find($id);
 		return $obj ?: new static;
 	}
+	
+	//////////////////////////////////
+	
+	/*
+	
+	public static function filterByActiveUserTask($list)
+	{
+	    if (Auth::user()->Role->id == 1) {
+	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Sudbvision_id);
+	        $list = $list->where('Task_id', '=', 'Sudbvision_id') ;
+	    } else {
+	        
+	    }
+	    return $list;
+	}
+	
+	*/
+	
+	/* не важна роль пользователя, важно подразделение
+	public static function filterByActiveUserTask($list)
+	{
+	    if (Auth::user()->Role->id == 1) {
+	        //
+	    } elseif (Auth::user()->Role->id == 2) {
+	        $list = $list->where('Task_id', '=', Auth::user()->Task_id);
+	    } else {
+	        $list = $list->where('Task_id', '=', 99999);
+	    }
+	    return $list;
+	}
+	
+	*/
+	public static function filterByActiveUserTask($list)
+	{
+	    if (Auth::user()->Role->id == 1) {
+	        //
+	    } elseif (Auth::user()->Role->id == 2) {
+	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Sudbvision_id); // подразделение такое же как у текущего пользователя
+	    } else {
+	        $list = $list->where('User_id', '=', 99999);
+	    }
+	    return $list;
+	}
+	
+	
+	
 	
 	public function Project()
 	{

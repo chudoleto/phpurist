@@ -28,10 +28,10 @@
 			<div class="col-sm-1 font-weight-bold text-center">Истец</div>
 			<div class="col-sm-1 font-weight-bold text-center">Стадия <br> рассмо<br>трения</div>
 			<div class="col-sm-1 font-weight-bold text-center">Исполн<br>итель</div>
-			<div class="col-sm-1 font-weight-bold text-center">Адрес суда</div>
+			<div class="col-sm-2 font-weight-bold text-center">Адрес суда</div>
 			<div class="col-sm-2 font-weight-bold text-center">Аппеляционный<br>период</div>
 			<div class="col-sm-1 font-weight-bold text-center">Штрафы</div>
-			<div class="col-sm-1 font-weight-bold text-center">Описание</div>
+			<div class="col-sm-2 font-weight-bold text-center">Описание</div>
 			<div class="col-sm-1 font-weight-bold text-center">Задача</div>
 		</div>
 		
@@ -42,10 +42,10 @@
 			<div class="col-sm-1 text-center"> {{ $item->Istec }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Stage_rassmotrenia }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->executor }} </div>
-			<div class="col-sm-1 text-center"> {{ $item->Address_court }} </div>
+			<div class="col-sm-2 text-center"> {{ $item->Address_court }} </div>
 			<div class="col-sm-2 text-center"> {{ $item->Appellate_period }} </div>
 			<div class="col-sm-1 text-center"> {{ $item->Fines }} </div>
-			<div class="col-sm-1 text-center"> {{ $item->Description }} </div>
+			<div class="col-sm-2 text-center"> {{ $item->Description }} </div>
 			<div class="col-sm-1 text-center"> {{ ($item->Task) ? $item->Task->Header : '' }} </div>
 			<div class="col-sm-2 text-center">
 				<button type="submit" class="btn btn-default btn-outline-secondary" name="btn_edit" value="{{ $item->id }}" title="Редактировать"><i class="fas fa-edit"></i></button>
