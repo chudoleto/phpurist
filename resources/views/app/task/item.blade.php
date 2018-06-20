@@ -53,7 +53,7 @@
 				<div class="form-group">
 					<label for="name">Проект</label>
 					<select name="Project_id" id="Project_id" class="custom-select">
-						{!! App\Project::getSelectFieldOptions($item->Project, old('Project_id', null)) !!}
+						{!! App\Project::getSelectFieldOptions($item->Project, old('Project_id', null), true) !!}
 					</select>
 				</div>
 			</div>

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Project extends Model
 {
@@ -30,7 +31,7 @@ class Project extends Model
 		return $this->belongsTo('App\User', 'User_id');
 	}
 	
-	public static function getSelectFieldOptions($value = '', $old_id = '')
+	public static function getSelectFieldOptions($value = '', $old_id = '', $allow_empty = false)
 	{
 	    $ret = '';
 	    
@@ -40,9 +41,17 @@ class Project extends Model
 	    } elseif ($old_id) {
 	        $propper_id = $old_id;
 	    }
-	    $items = self::orderBy('id')->get();
 	    
-	    $ret = '<option disabled selected> -- Не выбрано -- </option>';
+	    $items = self::orderBy('id');
+	    if (Auth::user()->Role->id != 1) {
+	    	$subdvision_id = Auth::user()->Subdvision_id;
+	    	$items = $items->whereHas('User', function($q) use ($subdvision_id) {
+	    		$q->where('Subdvision_id', '=', $subdvision_id);
+	    	});
+	    }
+	    $items = $items->get();
+	    
+	    $ret = '<option ' . ($allow_empty ? '' : 'disabled ') . 'value = "" selected> -- Не выбрано -- </option>';
 	    foreach($items as $item) {
 	        $ret .= '<option';
 	        $ret .= ' value="'.$item->id.'"';

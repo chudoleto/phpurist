@@ -16,11 +16,8 @@ class TaskController extends Controller
     
     public function listGet(Request $request)
     {
-        
-        
-        
-        $list_of_task = new Task;
-        $list_of_task = Task::filterByActiveUserTask($list_of_task);
+    	$list_of_task = new Task;
+        // $list_of_task = Task::filterByActiveUserTask($list_of_task); // этот потом
         $list_of_task = $list_of_task->orderBy('id')->get();
         
         
@@ -71,10 +68,9 @@ class TaskController extends Controller
         $this->validate($request, [
             'Header' => 'required|unique:Task,Header,'.$item_id.'|max:255',
             'Description' => ':Task,Description,'.$item_id.'|max:255',
-            'Short_deadline' => 'required:Task,Short_deadline, date_format:Y-m-d'.$item_id,
-            'Start' => 'required:Task,Start, date_format:Y-m-d'.$item_id,
-            'End' => 'required:Task,End, date_format:Y-m-d'.$item_id,
-            'Project_id' => 'required',
+            'Short_deadline' => 'required:Task,Short_deadline, date_format:Y-m-d',
+            'Start' => 'required:Task,Start, date_format:Y-m-d',
+            'End' => 'required:Task,End, date_format:Y-m-d',
             'Priority_task_id' => 'required',
             'Status_task_id' => 'required',
         ]);

@@ -24,50 +24,6 @@ class Task extends Authenticatable
 		return $obj ?: new static;
 	}
 	
-	//////////////////////////////////
-	
-	/*
-	
-	public static function filterByActiveUserTask($list)
-	{
-	    if (Auth::user()->Role->id == 1) {
-	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Sudbvision_id);
-	        $list = $list->where('Task_id', '=', 'Sudbvision_id') ;
-	    } else {
-	        
-	    }
-	    return $list;
-	}
-	
-	*/
-	
-	/* не важна роль пользователя, важно подразделение, но при этом нужно получить и конкретную заадчу для подразделения
-	public static function filterByActiveUserTask($list)
-	{
-	    if (Auth::user()->Role->id == 1) {
-	        //
-	    } elseif (Auth::user()->Role->id == 2) {
-	        $list = $list->where('Task_id', '=', Auth::user()->Task_id);
-	    } else {
-	        $list = $list->where('Task_id', '=', 99999);
-	    }
-	    return $list;
-	}
-	
-	
-	public static function filterByActiveUserTask($list)
-	{
-	    if (Auth::user()->Role->id == 1) {
-	        //
-	    } elseif (Auth::user()->Role->id == 2) {
-	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Sudbvision_id); // подразделение такое же как у текущего пользователя
-	    } else {
-	        $list = $list->where('User_id', '=', 99999);
-	    }
-	    return $list;
-	}
-	*/
-	
 	public static function filterByActiveUserTask($list)
 	{
 	    if (Auth::user()->Role->id == 1) {
