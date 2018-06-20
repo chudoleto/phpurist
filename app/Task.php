@@ -41,7 +41,7 @@ class Task extends Authenticatable
 	
 	*/
 	
-	/* не важна роль пользователя, важно подразделение
+	/* не важна роль пользователя, важно подразделение, но при этом нужно получить и конкретную заадчу для подразделения
 	public static function filterByActiveUserTask($list)
 	{
 	    if (Auth::user()->Role->id == 1) {
@@ -54,7 +54,7 @@ class Task extends Authenticatable
 	    return $list;
 	}
 	
-	*/
+	
 	public static function filterByActiveUserTask($list)
 	{
 	    if (Auth::user()->Role->id == 1) {
@@ -66,9 +66,20 @@ class Task extends Authenticatable
 	    }
 	    return $list;
 	}
+	*/
 	
-	
-	
+	public static function filterByActiveUserTask($list)
+	{
+	    if (Auth::user()->Role->id == 1) {
+	        //
+	    } elseif (Auth::user()->Role->id == 2) {
+	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Sudbvision_id); 
+	        $list = $list->where('Sudbvision_id', '=', Auth::user()->Task_id); 
+	    } else {
+	        $list = $list->where('User_id', '=', 99999);
+	    }
+	    return $list;
+	}
 	
 	public function Project()
 	{
