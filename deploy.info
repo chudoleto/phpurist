@@ -1,0 +1,41 @@
+1. Перенести на хостинг все файлы
+
+2. Обновить на хостинге базу данных
+
+3. На хостинге переименовать файл .htaccess.production
+
+4. На dev-хосте переименовать файл ".env" в ".env.dev"
+
+5. На dev-хосте внести все необходимые изменения в ".env.production" (настройки соединения с БД)
+
+6. На dev-хосте переименовать файл ".env.production" в ".env"
+
+7. На dev-хосте выполнить  команду "php artisan config:cache"
+
+8. На dev-хосте заменить в файле "/bootstrap/cache/config.php" строки
+   !!! "C:\\Program Files (x86)\\WAMP\\www\\phpurist\\" !!! - смотреть в самом файле config.php
+   !!! "/storage/ssd5/509/923509/public_html/" !!! - для 000webhost.com в пенели, в разделе "Детали сайта" есть поле "Домашний каталог"
+   !!! Пути, которые надо заменить: !!!
+
+C:\\Program Files (x86)\\WAMP\\www\\phpurist\\storage\\framework\\views
+/storage/ssd5/509/923509/public_html/storage/framework/views
+
+C:\\Program Files (x86)\\WAMP\\www\\phpurist\\storage\\framework
+/storage/ssd5/509/923509/public_html/storage/framework
+
+C:\\Program Files (x86)\\WAMP\\www\\phpurist\\storage\\app
+/storage/ssd5/509/923509/public_html/storage/app
+
+C:\\Program Files (x86)\\WAMP\\www\\phpurist\\resources\\views
+/storage/ssd5/509/923509/public_html/resources/views
+
+9. На dev-хосте заменить в файле "/bootstrap/cache/config.php" ниже строки
+   'driver' => 'mysql',
+      вставить
+   'options' => [PDO::ATTR_EMULATE_PREPARES => true],
+
+10. Скопировать на хостинг файл "/bootstrap/cache/config.php"
+
+11. На dev-хосте УДАЛИТЬ файл "/bootstrap/cache/config.php"
+
+12. На dev-хосте переименовать файл в ".env.dev" в ".env"
